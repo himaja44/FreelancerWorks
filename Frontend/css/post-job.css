@@ -1,0 +1,619 @@
+/* =====================================
+   POST JOB PAGE
+===================================== */
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.post-navbar {
+
+    width: 100%;
+
+    min-height: 76px;
+
+    padding: 0 50px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.post-logo {
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    white-space: nowrap;
+
+}
+
+
+.post-logo span {
+
+    color: #635bff;
+
+}
+
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
+.post-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+}
+
+
+.post-nav a {
+
+    text-decoration: none;
+
+    color: #111827;
+
+    font-weight: 600;
+
+}
+
+
+.post-nav a:hover {
+
+    color: #635bff;
+
+}
+
+
+.post-nav a.active {
+
+    color: #635bff;
+
+}
+
+
+/* =====================================
+   USER
+===================================== */
+
+.post-user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    white-space: nowrap;
+
+}
+
+
+.post-user-area span {
+
+    color: #475569;
+
+}
+
+
+/* =====================================
+   LOGOUT
+===================================== */
+
+.logout-button {
+
+    border: none;
+
+    background: #635bff;
+
+    color: #ffffff;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.logout-button:hover {
+
+    background: #5148e5;
+
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.post-page {
+
+    min-height: calc(100vh - 76px);
+
+    background: #f7f8fc;
+
+    padding: 60px 20px 100px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================
+   MAIN CARD
+===================================== */
+
+.post-container {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    padding: 50px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 12px 35px
+        rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* =====================================
+   HEADING
+===================================== */
+
+.post-heading {
+
+    margin-bottom: 40px;
+
+}
+
+
+.post-label {
+
+    margin: 0 0 12px;
+
+    color: #635bff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.post-heading h1 {
+
+    margin: 0;
+
+    font-size: 42px;
+
+    color: #111827;
+
+}
+
+
+.post-heading p:last-child {
+
+    margin-top: 12px;
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+.post-job-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group label {
+
+    margin-bottom: 9px;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    padding: 14px 15px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.form-group input {
+
+    height: 50px;
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 130px;
+
+    line-height: 1.6;
+
+}
+
+
+.form-group select {
+
+    height: 50px;
+
+    cursor: pointer;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    border-color: #635bff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(99, 91, 255, 0.12);
+
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+/* =====================================
+   HELP TEXT
+===================================== */
+
+.field-help {
+
+    margin-top: 7px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================
+   BUDGET
+===================================== */
+
+.budget-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================
+   ERRORS
+===================================== */
+
+.error-message {
+
+    min-height: 16px;
+
+    margin-top: 6px;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.post-form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 10px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e7eb;
+
+}
+
+
+.cancel-button {
+
+    text-decoration: none;
+
+    padding: 13px 25px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    color: #475569;
+
+    background: #ffffff;
+
+    font-weight: 600;
+
+}
+
+
+.cancel-button:hover {
+
+    background: #f8fafc;
+
+}
+
+
+.post-job-button {
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 8px;
+
+    background: #635bff;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.post-job-button:hover {
+
+    background: #5148e5;
+
+}
+
+
+.post-job-button:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .post-navbar {
+
+        padding: 20px 30px;
+
+        flex-wrap: wrap;
+
+        gap: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .post-navbar {
+
+        flex-direction: column;
+
+    }
+
+
+    .post-nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .post-user-area {
+
+        justify-content: center;
+
+    }
+
+
+    .post-container {
+
+        padding: 35px 25px;
+
+    }
+
+
+    .post-heading h1 {
+
+        font-size: 35px;
+
+    }
+
+
+    .budget-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .post-page {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .post-container {
+
+        padding: 30px 20px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .post-heading h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .post-form-actions {
+
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+
+    }
+
+
+    .cancel-button,
+    .post-job-button {
+
+        width: 100%;
+
+        text-align: center;
+
+        box-sizing: border-box;
+
+    }
+
+}

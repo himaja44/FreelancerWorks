@@ -1,0 +1,546 @@
+/* ==========================================
+   APPLICANTS PAGE
+========================================== */
+
+.applicants-page {
+    min-height: 100vh;
+    background: #f7f8fc;
+    color: #111827;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.applicants-navbar {
+    min-height: 88px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 7%;
+}
+
+
+.applicants-logo {
+    font-size: 29px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-right: auto;
+}
+
+
+.applicants-logo span {
+    color: #6254ff;
+}
+
+
+.applicants-nav {
+    display: flex;
+
+    gap: 30px;
+}
+
+
+.applicants-nav button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.applicants-nav button:hover {
+    color: #6254ff;
+}
+
+
+.applicants-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-left: 60px;
+}
+
+
+.applicants-user span {
+    color: #58708e;
+}
+
+
+.applicants-user button {
+    border: none;
+
+    background: #6254ff;
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.applicants-main {
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 70px 25px 100px;
+}
+
+
+/* ==========================================
+   INTRO
+========================================== */
+
+.applicants-intro {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.applicants-intro p {
+    color: #6254ff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+
+.applicants-intro h1 {
+    font-size: 52px;
+
+    margin: 0 0 15px;
+}
+
+
+.applicants-intro span {
+    color: #58708e;
+
+    font-size: 19px;
+}
+
+
+/* ==========================================
+   COUNT
+========================================== */
+
+.applicants-count {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.applicants-count span {
+    color: #6254ff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.applicants-count strong {
+    color: #58708e;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.applicant-card {
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 22px;
+
+    padding: 38px;
+
+    margin-bottom: 28px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(20, 30, 50, 0.06);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.applicant-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.applicant-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 27px;
+}
+
+
+.applicant-header p {
+    margin: 0;
+
+    color: #58708e;
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.application-status {
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+
+.application-status.pending {
+    background: #fff1c7;
+
+    color: #a16207;
+}
+
+
+.application-status.accepted {
+    background: #d9fbe7;
+
+    color: #087443;
+}
+
+
+.application-status.rejected {
+    background: #ffe0e0;
+
+    color: #c62828;
+}
+
+
+/* ==========================================
+   DETAILS
+========================================== */
+
+.applicant-details {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 30px;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.applicant-details div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.applicant-details span {
+    color: #58708e;
+
+    font-size: 15px;
+}
+
+
+.applicant-details strong {
+    font-size: 17px;
+}
+
+
+/* ==========================================
+   COVER LETTER
+========================================== */
+
+.cover-letter {
+    padding: 28px 0;
+}
+
+
+.cover-letter h3 {
+    font-size: 20px;
+
+    margin: 0 0 15px;
+}
+
+
+.cover-letter p {
+    color: #58708e;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.applicant-actions {
+    display: flex;
+
+    gap: 15px;
+
+    padding-top: 10px;
+}
+
+
+.accept-button,
+.reject-button {
+    padding: 13px 28px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.accept-button {
+    border: none;
+
+    background: #16a34a;
+
+    color: white;
+}
+
+
+.accept-button:hover {
+    background: #15803d;
+}
+
+
+.reject-button {
+    background: white;
+
+    border: 1px solid #ef4444;
+
+    color: #dc2626;
+}
+
+
+.reject-button:hover {
+    background: #fff1f2;
+}
+
+
+/* ==========================================
+   NO APPLICANTS
+========================================== */
+
+.no-applicants {
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 22px;
+
+    padding: 80px 30px;
+
+    text-align: center;
+}
+
+
+.no-applicants h2 {
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+
+.no-applicants p {
+    color: #58708e;
+
+    font-size: 18px;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.applicants-error {
+    background: #fff1f2;
+
+    border: 1px solid #fecdd3;
+
+    color: #be123c;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.applicants-loading {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #58708e;
+
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 800px) {
+
+    .applicants-navbar {
+        padding: 20px 25px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .applicants-logo {
+        width: 100%;
+
+        margin-bottom: 20px;
+    }
+
+
+    .applicants-nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    .applicants-user {
+        margin-left: auto;
+    }
+
+
+    .applicant-details {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .applicants-main {
+        padding: 45px 15px;
+    }
+
+
+    .applicants-intro h1 {
+        font-size: 40px;
+    }
+
+
+    .applicant-card {
+        padding: 25px;
+    }
+
+
+    .applicant-header {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .applicant-actions {
+        flex-direction: column;
+    }
+
+
+    .accept-button,
+    .reject-button {
+        width: 100%;
+    }
+
+}

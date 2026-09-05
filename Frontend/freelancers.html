@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Find Freelancers | Freelancer Works</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/freelancers.css">
+
+</head>
+
+<body>
+
+
+    <!-- navigation-->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Freelancer<span>Works</span>
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="jobs.html">
+                Find Jobs
+            </a>
+
+            <a
+                href="freelancers.html"
+                class="active"
+            >
+                Find Freelancers
+            </a>
+
+            <a href="how-it-works.html">
+                How It Works
+            </a>
+
+        </nav>
+
+
+        <div class="nav-buttons">
+
+            <a
+                href="login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                class="signup-btn"
+            >
+                Get Started
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- main-->
+
+    <section class="freelancers-hero">
+
+        <p>
+            FIND THE RIGHT TALENT
+        </p>
+
+        <h1>
+            Work with talented
+            <span>freelancers.</span>
+        </h1>
+
+        <p>
+            Discover skilled professionals who can help
+            you bring your ideas and projects to life.
+        </p>
+
+    </section>
+
+
+
+    <!-- serach for freelancers -->
+
+    <section class="freelancer-search-section">
+
+        <div class="freelancer-search">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                id="homeSearchInput"
+                placeholder="Search freelancers by skill..."
+            >
+
+            <button id="homeSearchButton">
+                Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- top freelancers -->
+
+    <main class="freelancers-container">
+
+
+        <div class="freelancers-heading">
+
+            <div>
+
+                <h2>
+                    Top Freelancers
+                </h2>
+
+                <p id="freelancerCount">
+                    6 freelancers available
+                </p>
+
+            </div>
+
+
+            <select id="freelancerCategory">
+
+                <option value="all">
+                    All Skills
+                </option>
+
+                <option value="web">
+                    Web Development
+                </option>
+
+                <option value="design">
+                    UI / UX Design
+                </option>
+
+                <option value="java">
+                    Java
+                </option>
+
+                <option value="ai">
+                    AI & ML
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="freelancer-grid">
+
+
+            <!-- first freelancer -->
+
+            <article
+                class="freelancer-card"
+                data-category="web"
+            >
+
+                <div class="freelancer-avatar">
+                    H
+                </div>
+
+                <div class="available">
+                    ● Available
+                </div>
+
+                <h3>
+                    Ram
+                </h3>
+
+                <p class="freelancer-title">
+                    Full Stack Developer
+                </p>
+
+                <div class="rating">
+                    ⭐ 4.9
+                    <span>
+                        (24 reviews)
+                    </span>
+                </div>
+
+                <p class="freelancer-description">
+                    Builds responsive web applications
+                    using modern frontend and backend
+                    technologies.
+                </p>
+
+                <div class="freelancer-skills">
+
+                    <span>
+                        JavaScript
+                    </span>
+
+                    <span>
+                        React
+                    </span>
+
+                    <span>
+                        Node.js
+                    </span>
+
+                    <span>
+                        MySQL
+                    </span>
+
+                </div>
+
+                <div class="freelancer-footer">
+
+                    <strong>
+                        ₹800 / hr
+                    </strong>
+
+                    <button>
+                        View Profile
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- second freelancer-->
+
+            <article
+                class="freelancer-card"
+                data-category="design"
+            >
+
+                <div class="freelancer-avatar">
+                    A
+                </div>
+
+                <div class="available">
+                    ● Available
+                </div>
+
+                <h3>
+                    Ananya
+                </h3>
+
+                <p class="freelancer-title">
+                    UI / UX Designer
+                </p>
+
+                <div class="rating">
+                    ⭐ 5.0
+                    <span>
+                        (31 reviews)
+                    </span>
+                </div>
+
+                <p class="freelancer-description">
+                    Creates clean and user-friendly
+                    interfaces for websites and mobile apps.
+                </p>
+
+                <div class="freelancer-skills">
+
+                    <span>
+                        Figma
+                    </span>
+
+                    <span>
+                        UI Design
+                    </span>
+
+                    <span>
+                        UX
+                    </span>
+
+                </div>
+
+                <div class="freelancer-footer">
+
+                    <strong>
+                        ₹700 / hr
+                    </strong>
+
+                    <button>
+                        View Profile
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- third freelancer-->
+
+            <article
+                class="freelancer-card"
+                data-category="java"
+            >
+
+                <div class="freelancer-avatar">
+                    R
+                </div>
+
+                <div class="available">
+                    ● Available
+                </div>
+
+                <h3>
+                    Rahul
+                </h3>
+
+                <p class="freelancer-title">
+                    Java Backend Developer
+                </p>
+
+                <div class="rating">
+                    ⭐ 4.8
+                    <span>
+                        (19 reviews)
+                    </span>
+                </div>
+
+                <p class="freelancer-description">
+                    Specializes in scalable backend
+                    applications using Java and Spring Boot.
+                </p>
+
+                <div class="freelancer-skills">
+
+                    <span>
+                        Java
+                    </span>
+
+                    <span>
+                        Spring Boot
+                    </span>
+
+                    <span>
+                        MySQL
+                    </span>
+
+                </div>
+
+                <div class="freelancer-footer">
+
+                    <strong>
+                        ₹900 / hr
+                    </strong>
+
+                    <button>
+                        View Profile
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- fifth freelancer-->
+
+            <article
+                class="freelancer-card"
+                data-category="ai"
+            >
+
+                <div class="freelancer-avatar">
+                    S
+                </div>
+
+                <div class="available">
+                    ● Available
+                </div>
+
+                <h3>
+                    Sneha
+                </h3>
+
+                <p class="freelancer-title">
+                    AI / ML Engineer
+                </p>
+
+                <div class="rating">
+                    ⭐ 4.9
+                    <span>
+                        (28 reviews)
+                    </span>
+                </div>
+
+                <p class="freelancer-description">
+                    Develops machine learning models
+                    and AI-powered applications.
+                </p>
+
+                <div class="freelancer-skills">
+
+                    <span>
+                        Python
+                    </span>
+
+                    <span>
+                        Machine Learning
+                    </span>
+
+                    <span>
+                        TensorFlow
+                    </span>
+
+                </div>
+
+                <div class="freelancer-footer">
+
+                    <strong>
+                        ₹1,100 / hr
+                    </strong>
+
+                    <button>
+                        View Profile
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!--fifth freelancer-->
+
+            <article
+                class="freelancer-card"
+                data-category="web"
+            >
+
+                <div class="freelancer-avatar">
+                    V
+                </div>
+
+                <div class="available">
+                    ● Available
+                </div>
+
+                <h3>
+                    Varun
+                </h3>
+
+                <p class="freelancer-title">
+                    React Developer
+                </p>
+
+                <div class="rating">
+                    ⭐ 4.7
+                    <span>
+                        (16 reviews)
+                    </span>
+                </div>
+
+                <p class="freelancer-description">
+                    Frontend developer focused on
+                    modern React applications.
+                </p>
+
+                <div class="freelancer-skills">
+
+                    <span>
+                        React
+                    </span>
+
+                    <span>
+                        JavaScript
+                    </span>
+
+                    <span>
+                        CSS
+                    </span>
+
+                </div>
+
+                <div class="freelancer-footer">
+
+                    <strong>
+                        ₹750 / hr
+                    </strong>
+
+                    <button>
+                        View Profile
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- six freelancer-->
+
+            <article
+                class="freelancer-card"
+                data-category="design"
+            >
+
+                <div class="freelancer-avatar">
+                    P
+                </div>
+
+                <div class="available">
+                    ● Available
+                </div>
+
+                <h3>
+                    Priya
+                </h3>
+
+                <p class="freelancer-title">
+                    Graphic Designer
+                </p>
+
+                <div class="rating">
+                    ⭐ 4.8
+                    <span>
+                        (22 reviews)
+                    </span>
+                </div>
+
+                <p class="freelancer-description">
+                    Creates branding, social media
+                    graphics and marketing designs.
+                </p>
+
+                <div class="freelancer-skills">
+
+                    <span>
+                        Photoshop
+                    </span>
+
+                    <span>
+                        Illustrator
+                    </span>
+
+                    <span>
+                        Canva
+                    </span>
+
+                </div>
+
+                <div class="freelancer-footer">
+
+                    <strong>
+                        ₹600 / hr
+                    </strong>
+
+                    <button>
+                        View Profile
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div
+            class="no-freelancers"
+            id="noFreelancers"
+        >
+
+            <h3>
+                No freelancers found
+            </h3>
+
+            <p>
+                Try another skill or category.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- footer part -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    Freelancer<span>Works</span>
+                </div>
+
+                <p>
+                    Connecting talented professionals
+                    with meaningful opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="js/freelancers.js"></script>
+
+</body>
+
+</html>

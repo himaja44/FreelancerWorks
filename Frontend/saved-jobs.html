@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Saved Jobs - FreelancerWorks</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/saved-jobs.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="saved-navbar">
+
+    <div class="saved-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="saved-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="jobs.html">
+            Find Jobs
+        </a>
+
+        <a href="applications.html">
+            My Applications
+        </a>
+
+        <a
+            href="saved-jobs.html"
+            class="active"
+        >
+            Saved Jobs
+        </a>
+
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </nav>
+
+
+    <div class="saved-nav-user">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="saved-page">
+
+
+    <section class="saved-intro">
+
+        <p class="saved-label">
+            FREELANCER WORKS
+        </p>
+
+        <h1>
+            Saved Jobs
+        </h1>
+
+        <p>
+            Keep track of jobs you're interested in
+            and apply when you're ready.
+        </p>
+
+    </section>
+
+
+
+    <section
+        id="savedJobsContainer"
+        class="saved-jobs-container"
+    >
+
+        <div class="loading-state">
+            Loading saved jobs...
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/saved-jobs.js"></script>
+
+
+</body>
+
+</html>

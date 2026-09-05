@@ -1,0 +1,1503 @@
+/* ==========================================
+   HOME PAGE
+========================================== */
+
+.home-page {
+    min-height: 100vh;
+    background: #f7f8fc;
+    color: #111827;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+    min-height: 620px;
+
+    padding: 100px 8% 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 70px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f7ff 0%,
+            #ffffff 50%,
+            #f3f5ff 100%
+        );
+}
+
+
+.hero-content {
+    max-width: 700px;
+}
+
+
+.hero-badge {
+    display: inline-block;
+
+    color: #6254ff;
+
+    background: #eeebff;
+
+    border: 1px solid #ddd8ff;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-size: 60px;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+
+    margin: 0 0 25px;
+
+    max-width: 700px;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    color: #6254ff;
+}
+
+
+.hero-description {
+    max-width: 650px;
+
+    color: #58708e;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    text-decoration: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 27px;
+
+    border-radius: 11px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+
+.primary-btn {
+    background: #6254ff;
+
+    color: white;
+}
+
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(98, 84, 255, 0.25);
+}
+
+
+.secondary-btn {
+    background: white;
+
+    color: #111827;
+
+    border: 1px solid #d9deea;
+}
+
+
+.secondary-btn:hover {
+    border-color: #6254ff;
+
+    color: #6254ff;
+}
+
+
+/* ==========================================
+   HERO INFO
+========================================== */
+
+.hero-info {
+    width: 390px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.info-card {
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(20, 30, 50, 0.07);
+}
+
+
+.info-icon {
+    width: 52px;
+
+    height: 52px;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background: #eeebff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+
+.info-card strong {
+    display: block;
+
+    font-size: 17px;
+
+    margin-bottom: 8px;
+}
+
+
+.info-card p {
+    color: #58708e;
+
+    line-height: 1.5;
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   STATS
+========================================== */
+
+.stats {
+    background: white;
+
+    border-top: 1px solid #e5e7eb;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding: 35px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+.stat {
+    text-align: center;
+}
+
+
+.stat h2 {
+    color: #6254ff;
+
+    font-size: 38px;
+
+    margin: 0 0 7px;
+}
+
+
+.stat p {
+    color: #58708e;
+
+    margin: 0;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   COMMON SECTION
+========================================== */
+
+.categories,
+.featured-jobs,
+.how-it-works,
+.testimonials {
+    padding: 90px 8%;
+}
+
+
+.section-heading {
+    max-width: 1200px;
+
+    margin: 0 auto 45px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 30px;
+}
+
+
+.section-heading.centered {
+    display: block;
+
+    text-align: center;
+
+    max-width: 750px;
+}
+
+
+.section-label {
+    color: #6254ff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin: 0 0 13px;
+}
+
+
+.section-heading h2 {
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    margin: 0;
+}
+
+
+.section-heading h2 span {
+    color: #6254ff;
+}
+
+
+.section-heading > a {
+    color: #6254ff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.section-heading.centered > p:last-child {
+    color: #58708e;
+
+    line-height: 1.7;
+
+    margin-top: 18px;
+}
+
+
+/* ==========================================
+   CATEGORIES
+========================================== */
+
+.category-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.category-card {
+    position: relative;
+
+    text-decoration: none;
+
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 17px;
+
+    padding: 30px;
+
+    min-height: 170px;
+
+    box-sizing: border-box;
+
+    transition: 0.25s;
+}
+
+
+.category-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #c9c3ff;
+
+    box-shadow:
+        0 15px 35px
+        rgba(20, 30, 50, 0.08);
+}
+
+
+.category-icon {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #eeebff;
+
+    font-size: 23px;
+
+    margin-bottom: 20px;
+}
+
+
+.category-card h3 {
+    color: #111827;
+
+    font-size: 18px;
+
+    margin: 0 0 7px;
+}
+
+
+.category-card p {
+    color: #58708e;
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+.category-arrow {
+    position: absolute;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    color: #6254ff;
+
+    font-size: 22px;
+}
+
+
+/* ==========================================
+   FEATURED JOBS
+========================================== */
+
+.featured-jobs {
+    background: white;
+}
+
+
+.featured-job-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+.featured-job-card {
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    transition: 0.25s;
+}
+
+
+.featured-job-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(20, 30, 50, 0.07);
+}
+
+
+.job-company-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+.company-icon {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 11px;
+
+    background: #eeebff;
+
+    color: #6254ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 800;
+
+    font-size: 18px;
+}
+
+
+.job-company-row p {
+    margin: 0 0 4px;
+
+    font-weight: 700;
+}
+
+
+.job-company-row small {
+    color: #8a99aa;
+}
+
+
+
+
+
+.featured-job-card h3 {
+    font-size: 23px;
+
+    margin: 0 0 12px;
+}
+
+
+.job-description {
+    color: #58708e;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+.job-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+}
+
+
+.job-tags span {
+    background: #f1f3f7;
+
+    color: #52647a;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.featured-job-footer {
+    border-top: 1px solid #edf0f4;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.featured-job-footer strong {
+    font-size: 17px;
+}
+
+
+.featured-job-footer p {
+    color: #8a99aa;
+
+    margin: 5px 0 0;
+
+    font-size: 13px;
+}
+
+
+.featured-job-footer a {
+    color: #6254ff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   HOW IT WORKS
+========================================== */
+
+.how-it-works {
+    background: #f7f8fc;
+}
+
+
+.steps {
+    max-width: 1050px;
+
+    margin: 50px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.step {
+    flex: 1;
+
+    text-align: center;
+}
+
+
+.step-number {
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #6254ff;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 800;
+
+    font-size: 16px;
+}
+
+
+.step h3 {
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+
+.step p {
+    color: #58708e;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+.step-line {
+    height: 2px;
+
+    width: 80px;
+
+    background: #d8d5ff;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   ABOUT
+========================================== */
+
+.about-section {
+    padding: 100px 8%;
+
+    background: white;
+}
+
+
+.about-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+.about-content h2 {
+    font-size: 45px;
+
+    line-height: 1.15;
+
+    margin: 0 0 25px;
+}
+
+
+.about-content p:not(.section-label) {
+    color: #58708e;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin: 15px auto;
+
+    max-width: 750px;
+}
+
+
+/* ==========================================
+   PRICING
+========================================== */
+
+.pricing-section {
+    padding: 100px 8%;
+
+    background: #f7f8fc;
+}
+
+
+.pricing-heading {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 50px;
+}
+
+
+.pricing-heading h2 {
+    font-size: 42px;
+
+    margin: 0 0 15px;
+}
+
+
+.pricing-heading > p:last-child {
+    color: #58708e;
+
+    font-size: 17px;
+}
+
+
+.pricing-grid {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+.pricing-card {
+    position: relative;
+
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 20px;
+
+    padding: 35px;
+}
+
+
+.featured-pricing {
+    border: 2px solid #6254ff;
+}
+
+
+.pricing-badge {
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    color: #6254ff;
+
+    background: #eeebff;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.pricing-card h3 {
+    font-size: 25px;
+
+    margin: 0 0 12px;
+}
+
+
+.pricing-description {
+    color: #58708e;
+
+    line-height: 1.6;
+
+    min-height: 55px;
+}
+
+
+.price {
+    font-size: 38px;
+
+    font-weight: 800;
+
+    margin: 25px 0;
+}
+
+
+.pricing-card ul {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0 0 30px;
+}
+
+
+.pricing-card li {
+    color: #52647a;
+
+    padding: 9px 0;
+}
+
+
+.pricing-button {
+    display: block;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background: #6254ff;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   TESTIMONIALS
+========================================== */
+
+.testimonials {
+    background: white;
+}
+
+
+.testimonial-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.testimonial-card {
+    border: 1px solid #e1e5ec;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    background: white;
+}
+
+
+.testimonial-rating {
+    margin-bottom: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+.testimonial-card > p {
+    color: #52647a;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    min-height: 125px;
+}
+
+
+.testimonial-user {
+    border-top: 1px solid #edf0f4;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.user-avatar {
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #6254ff;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+
+.testimonial-user strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.testimonial-user span {
+    display: block;
+
+    color: #8a99aa;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+.cta {
+    margin: 0;
+
+    padding: 75px 8%;
+
+    background: #6254ff;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.cta .section-label {
+    color: #dcd8ff;
+}
+
+
+.cta h2 {
+    font-size: 45px;
+
+    line-height: 1.15;
+
+    margin: 0 0 15px;
+}
+
+
+.cta p:not(.section-label) {
+    color: #e5e2ff;
+
+    max-width: 650px;
+
+    line-height: 1.7;
+}
+
+
+.cta-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.cta-buttons a {
+    text-decoration: none;
+
+    background: white;
+
+    color: #6254ff;
+
+    padding: 14px 24px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.cta-buttons a.cta-outline {
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid white;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    background: #111827;
+
+    color: white;
+
+    padding: 65px 8% 25px;
+}
+
+
+.footer-content {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 45px;
+}
+
+
+.footer-logo {
+    font-size: 27px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+
+.footer-logo span {
+    color: #8f85ff;
+}
+
+
+.footer-brand p {
+    color: #9ca8b7;
+
+    line-height: 1.7;
+
+    max-width: 300px;
+}
+
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.footer-column h4 {
+    margin: 0 0 10px;
+
+    font-size: 15px;
+}
+
+
+.footer-column a {
+    color: #9ca8b7;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+
+.footer-column a:hover {
+    color: white;
+}
+
+
+.footer-bottom {
+    max-width: 1200px;
+
+    margin: auto;
+
+    border-top: 1px solid #263142;
+
+    padding-top: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-bottom p {
+    color: #7f8b9b;
+
+    font-size: 13px;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   RESPONSIVE - TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding: 80px 6%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .hero-content {
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+
+    .hero h1 {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-description {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    .hero-info {
+        width: 100%;
+
+        max-width: 700px;
+
+        margin: auto;
+
+        flex-direction: row;
+    }
+
+
+    .info-card {
+        flex: 1;
+    }
+
+
+    .category-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .testimonial-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .footer-content {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .cta {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+
+    .hero h1 {
+        font-size: 45px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+
+    .hero-info {
+        flex-direction: column;
+    }
+
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding: 30px 20px;
+    }
+
+
+    .stat h2 {
+        font-size: 30px;
+    }
+
+
+    .categories,
+    .featured-jobs,
+    .how-it-works,
+    .testimonials {
+        padding: 65px 20px;
+    }
+
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .section-heading.centered {
+        align-items: center;
+    }
+
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+
+    .category-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .featured-job-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .steps {
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+
+    .step-line {
+        width: 2px;
+
+        height: 45px;
+    }
+
+
+    .about-section,
+    .pricing-section {
+        padding: 70px 20px;
+    }
+
+
+    .about-content h2,
+    .pricing-heading h2 {
+        font-size: 34px;
+    }
+
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .testimonial-card > p {
+        min-height: auto;
+    }
+
+
+    .cta {
+        padding: 60px 20px;
+    }
+
+
+    .cta h2 {
+        font-size: 35px;
+    }
+
+
+    .cta-buttons {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .cta-buttons a {
+        text-align: center;
+    }
+
+
+    footer {
+        padding: 50px 20px 25px;
+    }
+
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+
+    .hero-badge {
+        font-size: 11px;
+
+        padding: 9px 12px;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .stat {
+        padding: 8px 0;
+    }
+
+
+    .info-card {
+        padding: 20px;
+    }
+
+
+    .featured-job-card {
+        padding: 22px;
+    }
+
+}

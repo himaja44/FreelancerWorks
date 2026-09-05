@@ -1,0 +1,683 @@
+/* ==========================================
+   CLIENT DASHBOARD
+========================================== */
+
+.client-dashboard {
+    min-height: 100vh;
+    background: #f7f8fc;
+    color: #121827;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.client-navbar {
+    height: 88px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 7%;
+
+    gap: 40px;
+}
+
+
+.client-logo {
+    font-size: 30px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    margin-right: auto;
+}
+
+
+.client-logo span {
+    color: #6254ff;
+}
+
+
+.client-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 34px;
+}
+
+
+.client-nav button {
+    border: none;
+    background: transparent;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #111827;
+
+    cursor: pointer;
+
+    padding: 10px 0;
+}
+
+
+.client-nav button:hover {
+    color: #6254ff;
+}
+
+
+.client-nav button.active {
+    color: #6254ff;
+}
+
+
+.client-user {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-left: auto;
+}
+
+
+.client-user span {
+    color: #506887;
+    font-size: 16px;
+}
+
+
+.logout-button {
+    border: none;
+
+    background: #6254ff;
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.logout-button:hover {
+    background: #5144e8;
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.client-dashboard-main {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 80px 30px;
+}
+
+
+/* ==========================================
+   INTRO
+========================================== */
+
+.dashboard-intro {
+    margin-bottom: 50px;
+}
+
+
+.dashboard-label {
+    color: #6254ff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 16px;
+}
+
+
+.dashboard-intro h1 {
+    font-size: 58px;
+
+    line-height: 1.1;
+
+    margin: 0 0 16px;
+
+    font-weight: 700;
+}
+
+
+.dashboard-intro > p:last-child {
+    color: #58708e;
+
+    font-size: 20px;
+
+    margin: 0;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   DASHBOARD CARDS
+========================================== */
+
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 28px;
+
+    margin-bottom: 40px;
+}
+
+
+.dashboard-card {
+    background: white;
+
+    border: 1px solid #e3e6ed;
+
+    border-radius: 22px;
+
+    padding: 36px;
+
+    min-height: 270px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(35, 42, 60, 0.05);
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 16px;
+
+    background: #eeeaff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 29px;
+
+    margin-bottom: 24px;
+}
+
+
+.dashboard-card h2 {
+    margin: 0 0 12px;
+
+    font-size: 26px;
+}
+
+
+.dashboard-card p {
+    color: #58708e;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    margin: 0 0 25px;
+}
+
+
+.dashboard-card button {
+    border: none;
+
+    background: transparent;
+
+    color: #6254ff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    text-align: left;
+
+    margin-top: auto;
+}
+
+
+.dashboard-card button:hover {
+    color: #4032e8;
+}
+
+
+/* ==========================================
+   ACCOUNT CARD
+========================================== */
+
+.account-card {
+    background: white;
+
+    border: 1px solid #e3e6ed;
+
+    border-radius: 22px;
+
+    padding: 35px 40px;
+
+    margin-bottom: 40px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(35, 42, 60, 0.04);
+}
+
+
+.account-card h2 {
+    margin: 0;
+
+    font-size: 27px;
+}
+
+
+.account-card > p {
+    margin: 5px 0 30px;
+
+    color: #58708e;
+
+    font-size: 16px;
+}
+
+
+.account-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    border-top: 1px solid #e5e7eb;
+
+    padding-top: 25px;
+}
+
+
+.account-details div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.account-details span {
+    color: #58708e;
+
+    font-size: 14px;
+}
+
+
+.account-details strong {
+    font-size: 17px;
+
+    color: #111827;
+}
+
+
+/* ==========================================
+   RECENT JOBS
+========================================== */
+
+.recent-jobs {
+    background: white;
+
+    border: 1px solid #e3e6ed;
+
+    border-radius: 22px;
+
+    padding: 35px 40px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(35, 42, 60, 0.04);
+}
+
+
+.recent-jobs-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.recent-jobs-heading h2 {
+    font-size: 30px;
+
+    margin: 0;
+}
+
+
+.recent-jobs-heading .dashboard-label {
+    margin-bottom: 8px;
+}
+
+
+.recent-jobs-heading > button {
+    border: none;
+
+    background: transparent;
+
+    color: #6254ff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   RECENT JOB LIST
+========================================== */
+
+.recent-job-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.recent-job {
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.recent-job:hover {
+    border-color: #6254ff;
+}
+
+
+.recent-job span {
+    color: #6254ff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.recent-job h3 {
+    margin: 7px 0;
+
+    font-size: 21px;
+}
+
+
+.recent-job p {
+    margin: 0;
+
+    color: #58708e;
+}
+
+
+.recent-job button {
+    border: 1px solid #6254ff;
+
+    background: white;
+
+    color: #6254ff;
+
+    border-radius: 10px;
+
+    padding: 12px 18px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.recent-job button:hover {
+    background: #6254ff;
+
+    color: white;
+}
+
+
+/* ==========================================
+   MESSAGES
+========================================== */
+
+.dashboard-message {
+    border: 1px dashed #cfd5df;
+
+    border-radius: 15px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    color: #58708e;
+}
+
+
+.dashboard-message h3 {
+    color: #111827;
+
+    font-size: 22px;
+
+    margin: 0 0 8px;
+}
+
+
+.dashboard-message p {
+    margin-bottom: 22px;
+}
+
+
+.dashboard-message button {
+    border: none;
+
+    background: #6254ff;
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.dashboard-message.error {
+    color: #dc2626;
+
+    border-color: #fecaca;
+}
+
+
+/* ==========================================
+   ACCESS DENIED
+========================================== */
+
+.dashboard-error {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: #f7f8fc;
+}
+
+
+.dashboard-error h2 {
+    font-size: 35px;
+}
+
+
+.dashboard-error p {
+    color: #58708e;
+
+    margin-bottom: 25px;
+}
+
+
+.dashboard-error button {
+    border: none;
+
+    background: #6254ff;
+
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 950px) {
+
+    .client-navbar {
+        padding: 20px 30px;
+
+        height: auto;
+
+        flex-wrap: wrap;
+    }
+
+
+    .client-logo {
+        width: 100%;
+
+        margin-right: 0;
+    }
+
+
+    .client-nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    .client-user {
+        margin-left: auto;
+    }
+
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .account-details {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .client-dashboard-main {
+        padding: 50px 18px;
+    }
+
+
+    .dashboard-intro h1 {
+        font-size: 42px;
+    }
+
+
+    .dashboard-intro > p:last-child {
+        font-size: 17px;
+    }
+
+
+    .client-nav {
+        gap: 15px;
+    }
+
+
+    .client-nav button {
+        font-size: 14px;
+    }
+
+
+    .client-user span {
+        display: none;
+    }
+
+
+    .dashboard-card,
+    .account-card,
+    .recent-jobs {
+        padding: 25px;
+    }
+
+
+    .recent-job {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+}

@@ -1,0 +1,639 @@
+/* ==========================================
+   MY JOBS PAGE
+========================================== */
+
+.my-jobs-page {
+    min-height: calc(100vh - 80px);
+    background: #f7f8fc;
+    padding: 75px 6%;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.my-jobs-navbar {
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-sizing: border-box;
+}
+
+
+.my-jobs-logo {
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #111827;
+
+    white-space: nowrap;
+}
+
+
+.my-jobs-logo span {
+    color: #635bff;
+}
+
+
+.my-jobs-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 38px;
+}
+
+
+.my-jobs-nav a {
+    text-decoration: none;
+
+    color: #111827;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+
+.my-jobs-nav a:hover {
+    color: #635bff;
+}
+
+
+.my-jobs-nav a.active {
+    color: #635bff;
+}
+
+
+.my-jobs-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+.my-jobs-user span {
+    color: #475569;
+
+    font-size: 16px;
+}
+
+
+.my-jobs-user .logout-button {
+    border: none;
+
+    background: #635bff;
+
+    color: #ffffff;
+
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.my-jobs-user .logout-button:hover {
+    background: #5148e8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   PAGE INTRO
+========================================== */
+
+.my-jobs-intro {
+    max-width: 1250px;
+
+    margin: 0 auto 45px;
+}
+
+
+.my-jobs-label {
+    margin: 0 0 16px;
+
+    color: #635bff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.my-jobs-intro h1 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 58px;
+
+    line-height: 1.1;
+}
+
+
+.my-jobs-intro > p:last-child {
+    margin-top: 15px;
+
+    color: #64748b;
+
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   JOBS CONTAINER
+========================================== */
+
+.jobs-container {
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* ==========================================
+   JOB CARD
+========================================== */
+
+.my-job-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    padding: 32px 38px;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.my-job-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.11);
+}
+
+
+/* ==========================================
+   JOB TOP
+========================================== */
+
+.my-job-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 30px;
+}
+
+
+.my-job-category {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #635bff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+.my-job-title {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 28px;
+
+    line-height: 1.25;
+}
+
+
+.my-job-type {
+    color: #64748b;
+
+    font-size: 16px;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.my-job-description {
+    margin-top: 14px;
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   SKILLS
+========================================== */
+
+.my-job-skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.my-job-skill {
+    padding: 8px 14px;
+
+    background: #f0efff;
+
+    color: #635bff;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.my-job-divider {
+    height: 1px;
+
+    background: #e5e7eb;
+
+    margin: 28px 0;
+}
+
+
+/* ==========================================
+   JOB BOTTOM
+========================================== */
+
+.my-job-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+/* ==========================================
+   BUDGET
+========================================== */
+
+.my-job-budget {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.my-job-budget strong {
+    color: #111827;
+
+    font-size: 22px;
+}
+
+
+.my-job-budget span {
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.my-job-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.my-job-actions button,
+.my-job-actions a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 21px;
+
+    border-radius: 11px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition: all 0.2s ease;
+}
+
+
+/* ==========================================
+   VIEW DETAILS
+========================================== */
+
+.view-details-button {
+    background: #635bff;
+
+    color: #ffffff;
+
+    border: 1px solid #635bff;
+}
+
+
+.view-details-button:hover {
+    background: #5148e8;
+
+    border-color: #5148e8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   VIEW APPLICANTS
+========================================== */
+
+.view-applicants-button {
+    background: #ffffff;
+
+    color: #635bff;
+
+    border: 1px solid #635bff;
+}
+
+
+.view-applicants-button:hover {
+    background: #f0efff;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   DELETE
+========================================== */
+
+.delete-button {
+    background: #ffffff;
+
+    color: #dc2626;
+
+    border: 1px solid #fca5a5;
+}
+
+
+.delete-button:hover {
+    background: #fee2e2;
+
+    border-color: #f87171;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading-state {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.my-jobs-empty {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    padding: 75px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+
+.my-jobs-empty h2 {
+    margin: 0 0 10px;
+
+    color: #64748b;
+
+    font-size: 28px;
+}
+
+
+.my-jobs-empty p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 17px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 950px) {
+
+    .my-jobs-navbar {
+        padding: 0 25px;
+    }
+
+    .my-jobs-nav {
+        gap: 20px;
+    }
+
+    .my-jobs-user {
+        gap: 12px;
+    }
+
+    .my-jobs-page {
+        padding: 55px 25px;
+    }
+
+    .my-jobs-intro h1 {
+        font-size: 46px;
+    }
+
+    .my-job-top {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .my-job-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .my-jobs-navbar {
+        height: auto;
+
+        min-height: 80px;
+
+        flex-wrap: wrap;
+
+        gap: 18px;
+
+        padding: 20px;
+    }
+
+    .my-jobs-nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .my-jobs-user {
+        margin-left: auto;
+    }
+
+    .my-job-card {
+        padding: 25px;
+    }
+
+    .my-job-actions {
+        width: 100%;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .my-jobs-intro h1 {
+        font-size: 38px;
+    }
+
+    .my-jobs-intro > p:last-child {
+        font-size: 17px;
+    }
+
+    .my-job-title {
+        font-size: 24px;
+    }
+
+    .my-job-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .my-job-actions button,
+    .my-job-actions a {
+        width: 100%;
+    }
+
+    .my-jobs-user span {
+        display: none;
+    }
+
+}

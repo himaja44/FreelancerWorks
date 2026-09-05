@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Applications - Freelancer Works</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/applications.css"
+    >
+
+</head>
+
+<body>
+
+<header class="applications-navbar">
+
+    <div class="dashboard-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="applications-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="jobs.html">
+            Find Jobs
+        </a>
+
+        <a
+            href="applications.html"
+            class="active"
+        >
+            My Applications
+        </a>
+        <a href="saved-jobs.html">
+    Saved Jobs
+</a>
+
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </nav>
+
+
+    <div class="applications-user">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="applications-page">
+
+    <section class="applications-header">
+
+        <p class="section-label">
+            FREELANCER WORKS
+        </p>
+
+        <h1>
+            My Applications
+        </h1>
+
+        <p>
+            Track the jobs you have applied for
+            and check your application status.
+        </p>
+
+    </section>
+
+
+    <section id="applicationsContainer">
+
+        <div class="applications-loading">
+            Loading your applications...
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/applications.js"></script>
+
+</body>
+
+</html>

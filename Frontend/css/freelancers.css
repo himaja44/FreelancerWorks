@@ -1,0 +1,365 @@
+.freelancers-hero {
+    padding: 70px 7% 50px;
+
+    text-align: center;
+
+    background: white;
+}
+
+.freelancers-hero > p:first-child {
+    color: #635bff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.freelancers-hero h1 {
+    font-size: 50px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.freelancers-hero h1 span {
+    color: #635bff;
+}
+
+.freelancers-hero p:last-child {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+
+
+.freelancer-search-section {
+    padding: 20px 7%;
+
+    background: #f8f9fc;
+}
+
+.freelancer-search {
+    max-width: 800px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: 1px solid #eee;
+
+    border-radius: 9px;
+}
+
+.freelancer-search input {
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    padding: 12px;
+
+    font-size: 13px;
+}
+
+.freelancer-search button {
+    border: none;
+
+    background: #635bff;
+
+    color: white;
+
+    padding: 12px 22px;
+
+    border-radius: 7px;
+
+    font-weight: 700;
+}
+
+
+
+.freelancers-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 50px 7% 100px;
+}
+
+.freelancers-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.freelancers-heading h2 {
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+.freelancers-heading p {
+    color: #999;
+
+    font-size: 11px;
+}
+
+.freelancers-heading select {
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    background: white;
+
+    outline: none;
+}
+
+
+
+
+.freelancer-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+
+
+.freelancer-card {
+    position: relative;
+
+    background: white;
+
+    border: 1px solid #eee;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    transition: 0.2s;
+}
+
+.freelancer-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.freelancer-avatar {
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eeeaff;
+
+    color: #635bff;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+.available {
+    position: absolute;
+
+    right: 20px;
+
+    top: 25px;
+
+    color: #42a866;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.freelancer-card h3 {
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+.freelancer-title {
+    color: #635bff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.rating {
+    font-size: 11px;
+
+    margin-bottom: 15px;
+}
+
+.rating span {
+    color: #999;
+}
+
+.freelancer-description {
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+
+
+.freelancer-skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-bottom: 20px;
+}
+
+.freelancer-skills span {
+    padding: 6px 8px;
+
+    background: #f1f1ff;
+
+    color: #635bff;
+
+    border-radius: 12px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+
+
+.freelancer-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #eee;
+}
+
+.freelancer-footer strong {
+    font-size: 12px;
+}
+
+.freelancer-footer button {
+    border: none;
+
+    background: transparent;
+
+    color: #635bff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+
+.no-freelancers {
+    display: none;
+
+    text-align: center;
+
+    padding: 60px;
+}
+
+.no-freelancers h3 {
+    margin-bottom: 8px;
+}
+
+.no-freelancers p {
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    .freelancer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .freelancers-hero h1 {
+        font-size: 38px;
+    }
+
+    .freelancers-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .freelancer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .freelancer-search {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+}
