@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
 
-import "./Applications.css";
+import "./applications.css";
 
 
 function Applications() {
