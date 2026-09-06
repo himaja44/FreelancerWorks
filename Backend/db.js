@@ -23,6 +23,7 @@ db.connect(function (error) {
 
         console.log(
             "MySQL connection failed:",
+            error.code,
             error.message
         );
 
