@@ -73,7 +73,7 @@ function Profile() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/profile",
+                    "https://freelancerworks-production.up.railway.app/api/jobs/my-jobs",
                     {
                         headers: {
                             Authorization:
@@ -173,7 +173,7 @@ function Profile() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/profile",
+                   "https://freelancerworks-production.up.railway.app/api/profile" ,
                     {
                         method: "PUT",
 

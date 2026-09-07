@@ -96,7 +96,7 @@ function Applicants() {
 
                 const jobResponse =
                     await fetch(
-                        `http://localhost:5000/api/jobs/${jobId}`,
+                        "https://freelancerworks-production.up.railway.app/api/applications/job/${jobId}",
                         {
                             headers: {
                                 "Authorization":
@@ -129,7 +129,7 @@ function Applicants() {
 
                 const response =
                     await fetch(
-                        `http://localhost:5000/api/applications/job/${jobId}`,
+                       "https://freelancerworks-production.up.railway.app/api/applications/${applicationId}/status",
                         {
                             headers: {
                                 "Authorization":
@@ -212,7 +212,7 @@ function Applicants() {
 
             const response =
                 await fetch(
-                    `http://localhost:5000/api/applications/${applicationId}/status`,
+                    "https://freelancerworks-production.up.railway.app${applicant.resume}",
                     {
 
                         method: "PUT",
@@ -661,7 +661,7 @@ function Applicants() {
                                                 href={
                                                     applicant.resume.startsWith("http")
                                                         ? applicant.resume
-                                                        : `http://localhost:5000${applicant.resume}`
+                                                        : `https://freelancerworks-production.up.railway.app${applicant.resume}`
                                                 }
                                                 target="_blank"
                                                 rel="noopener noreferrer"

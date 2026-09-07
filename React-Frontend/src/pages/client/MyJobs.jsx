@@ -103,7 +103,7 @@ function MyJobs() {
 
                 const response =
                     await fetch(
-                        "http://localhost:5000/api/jobs/my-jobs",
+                        "https://freelancerworks-production.up.railway.app/api/jobs/my-jobs",
                         {
                             method: "GET",
 
@@ -223,7 +223,7 @@ function MyJobs() {
 
             const response =
                 await fetch(
-                    `http://localhost:5000/api/jobs/${jobId}`,
+                    "https://freelancerworks-production.up.railway.app/api/jobs/${jobId}",
                     {
                         method: "DELETE",
 

@@ -308,7 +308,7 @@ function PostJob() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/jobs",
+                    "https://freelancerworks-production.up.railway.app/api/jobs",
                     {
 
                         method: "POST",

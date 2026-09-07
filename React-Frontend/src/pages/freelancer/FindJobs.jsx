@@ -47,7 +47,7 @@ function FindJobs() {
 
 
                 const response = await fetch(
-                    "http://localhost:5000/api/jobs/"
+"https://freelancerworks-production.up.railway.app/api/jobs/"
                 );
 
 
@@ -130,8 +130,9 @@ function FindJobs() {
 
                 const response =
                     await fetch(
-                        "http://localhost:5000/api/saved-jobs",
-                        {
+                       "https://freelancerworks-production.up.railway.app/api/saved-jobs",
+                       {
+
                             headers: {
                                 "Authorization":
                                     `Bearer ${token}`
@@ -218,7 +219,7 @@ function FindJobs() {
 
                 const response =
                     await fetch(
-                        `http://localhost:5000/api/saved-jobs/${jobId}`,
+                        "https://freelancerworks-production.up.railway.app/api/saved-jobs/${jobId}",
                         {
                             method: "DELETE",
 
@@ -261,7 +262,7 @@ function FindJobs() {
 
                 const response =
                     await fetch(
-                        "http://localhost:5000/api/saved-jobs",
+                       "https://freelancerworks-production.up.railway.app/api/saved-jobs",
                         {
                             method: "POST",
 

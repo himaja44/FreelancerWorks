@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:5000/api";
+// CHANGE TO
+
+const API_URL = "https://freelancerworks-production.up.railway.app/api";
 
 
 // Get all jobs

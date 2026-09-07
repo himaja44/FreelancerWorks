@@ -47,7 +47,7 @@ function Applications() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/applications/my",
+                    "https://freelancerworks-production.up.railway.app/api/applications/my",
                     {
                         headers: {
                             Authorization:

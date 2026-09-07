@@ -102,7 +102,7 @@ function ApplyJob() {
 
                 const response =
                     await fetch(
-                        `http://localhost:5000/api/jobs/${id}`
+                       `https://freelancerworks-production.up.railway.app/api/jobs/${id}`
                     );
 
 
@@ -305,7 +305,7 @@ function ApplyJob() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/applications",
+                    "https://freelancerworks-production.up.railway.app/api/applications",
                     {
 
                         method: "POST",
