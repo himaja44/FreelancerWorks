@@ -183,20 +183,13 @@ exports.registerUser = async function (req, res) {
 
     }
 
-    catch (error) {
+ catch (error) {
+    console.log("LOGIN DATABASE ERROR:", error);
 
-        console.log(error);
-
-        return res.status(500).json({
-
-            success: false,
-
-            message:
-                "Something went wrong."
-
-        });
-
-    }
+    res.status(500).json({
+        message: "Database error."
+    });
+}
 
 };
 
