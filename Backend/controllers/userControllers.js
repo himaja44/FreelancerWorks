@@ -196,7 +196,9 @@ exports.registerUser = async function (req, res) {
 
 // login the user
 
-exports.loginUser = async function (req, res) {
+exports.loginUser = async function (req, res) 
+{
+    console.log("LOGIN API CALLED");
 
     try {
 
