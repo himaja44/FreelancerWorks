@@ -71,6 +71,28 @@ app.get("/", function (req, res) {
 
 });
 
+app.get("/api/db-test", function (req, res) {
+
+    db.query("SELECT 1 AS test", function (error, results) {
+
+        if (error) {
+            console.log("DATABASE TEST ERROR:", error);
+
+            return res.status(500).json({
+                success: false,
+                message: "Database connection failed",
+                error: error.message
+            });
+        }
+
+        res.json({
+            success: true,
+            message: "Database connection is working",
+            result: results
+        });
+    });
+
+});
 
 app.listen(PORT, function () {
 
