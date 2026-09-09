@@ -266,18 +266,18 @@ exports.loginUser = async function (req, res)
 
                 }
 
+const user = results[0];
 
-                const user = results[0];
+console.log("LOGIN USER FOUND:", user.email);
+console.log("LOGIN PASSWORD HASH EXISTS:", !!user.password);
 
+const passwordMatch =
+await bcrypt.compare(
+password,
+user.password
+);
 
-                // Compare  the password
-
-                const passwordMatch =
-                    await bcrypt.compare(
-                        password,
-                        user.password
-                    );
-
+console.log("PASSWORD MATCH RESULT:", passwordMatch);
 
                 if (!passwordMatch) {
 
