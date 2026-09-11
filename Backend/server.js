@@ -22,7 +22,8 @@ const applicationRoutes =
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT =
+    process.env.PORT || 5000;
 
 
 app.use(cors());
@@ -30,10 +31,11 @@ app.use(cors());
 app.use(express.json());
 
 
-// Serve uploaded files
 app.use(
     "/uploads",
-    express.static(path.join(__dirname, "uploads"))
+    express.static(
+        path.join(__dirname, "uploads")
+    )
 );
 
 
@@ -42,20 +44,24 @@ app.use(
     userRoutes
 );
 
+
 app.use(
     "/api/jobs",
     jobRoutes
 );
+
 
 app.use(
     "/api/applications",
     applicationRoutes
 );
 
+
 app.use(
     "/api/saved-jobs",
     savedJobRoutes
 );
+
 
 app.use(
     "/api/profile",
@@ -66,38 +72,19 @@ app.use(
 app.get("/", function (req, res) {
 
     res.json({
-        message: "Freelancer Works backend is running"
+
+        message:
+            "Freelancer Works backend is running"
+
     });
 
 });
 
-app.get("/api/db-test", function (req, res) {
-
-    db.query("SELECT 1 AS test", function (error, results) {
-
-        if (error) {
-            console.log("DATABASE TEST ERROR:", error);
-
-            return res.status(500).json({
-                success: false,
-                message: "Database connection failed",
-                error: error.message
-            });
-        }
-
-        res.json({
-            success: true,
-            message: "Database connection is working",
-            result: results
-        });
-    });
-
-});
 
 app.listen(PORT, function () {
 
     console.log(
-        `Freelancer Works backend running on http://localhost:${PORT}`
+        `Freelancer Works backend running on port ${PORT}`
     );
 
 });

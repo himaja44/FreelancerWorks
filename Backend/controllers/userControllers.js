@@ -4,7 +4,9 @@ const jwt = require("jsonwebtoken");
 const db = require("../db");
 
 
-//register the user
+// ======================================================
+// REGISTER USER
+// ======================================================
 
 exports.registerUser = async function (req, res) {
 
@@ -19,9 +21,14 @@ exports.registerUser = async function (req, res) {
         } = req.body;
 
 
-        // Check  the required fields
-
-        if (!name || !email || !password ||!phone ||!role) {
+        // Check required fields
+        if (
+            !name ||
+            !email ||
+            !password ||
+            !phone ||
+            !role
+        ) {
 
             return res.status(400).json({
 
@@ -35,8 +42,7 @@ exports.registerUser = async function (req, res) {
         }
 
 
-        // Check the  role
-
+        // Check role
         if (
             role !== "freelancer" &&
             role !== "client"
@@ -54,8 +60,7 @@ exports.registerUser = async function (req, res) {
         }
 
 
-        // Check  the password length
-
+        // Check password length
         if (password.length < 6) {
 
             return res.status(400).json({
@@ -70,20 +75,22 @@ exports.registerUser = async function (req, res) {
         }
 
 
-        // Check if existing email
-
+        // Check if email already exists
         const checkEmailSql =
             "SELECT id FROM users WHERE email = ?";
 
 
         db.query(
             checkEmailSql,
-            [email],
+            [email.trim()],
             async function (error, results) {
 
                 if (error) {
 
-                    console.log(error);
+                    console.log(
+                        "REGISTER DATABASE ERROR:",
+                        error
+                    );
 
                     return res.status(500).json({
 
@@ -97,8 +104,7 @@ exports.registerUser = async function (req, res) {
                 }
 
 
-                // if Email already exists
-
+                // Email already exists
                 if (results.length > 0) {
 
                     return res.status(409).json({
@@ -113,8 +119,7 @@ exports.registerUser = async function (req, res) {
                 }
 
 
-                // Hashing the  password
-
+                // Hash password
                 const hashedPassword =
                     await bcrypt.hash(
                         password,
@@ -122,12 +127,11 @@ exports.registerUser = async function (req, res) {
                     );
 
 
-                // Insert  the user
-
+                // Insert user
                 const insertSql = `
                     INSERT INTO users
-                    (name, email, password,phone_number, role)
-                    VALUES (?, ?, ?, ?,?)
+                    (name, email, password, phone_number, role)
+                    VALUES (?, ?, ?, ?, ?)
                 `;
 
 
@@ -136,7 +140,7 @@ exports.registerUser = async function (req, res) {
 
                     [
                         name,
-                        email,
+                        email.trim(),
                         hashedPassword,
                         phone,
                         role
@@ -149,7 +153,10 @@ exports.registerUser = async function (req, res) {
 
                         if (insertError) {
 
-                            console.log(insertError);
+                            console.log(
+                                "REGISTER INSERT ERROR:",
+                                insertError
+                            );
 
                             return res.status(500).json({
 
@@ -183,22 +190,35 @@ exports.registerUser = async function (req, res) {
 
     }
 
- catch (error) {
-    console.log("LOGIN DATABASE ERROR:", error);
+    catch (error) {
 
-    res.status(500).json({
-        message: "Database error."
-    });
-}
+        console.log(
+            "REGISTER SERVER ERROR:",
+            error
+        );
+
+        return res.status(500).json({
+
+            success: false,
+
+            message:
+                "Something went wrong."
+
+        });
+
+    }
 
 };
 
 
-// login the user
+// ======================================================
+// LOGIN USER
+// ======================================================
 
-exports.loginUser = async function (req, res) 
-{
+exports.loginUser = async function (req, res) {
+
     console.log("LOGIN API CALLED");
+
 
     try {
 
@@ -208,8 +228,7 @@ exports.loginUser = async function (req, res)
         } = req.body;
 
 
-        // Check  the required fields
-
+        // Check required fields
         if (!email || !password) {
 
             return res.status(400).json({
@@ -224,20 +243,24 @@ exports.loginUser = async function (req, res)
         }
 
 
-        // Find  the user
-
+        // Find user
         const sql =
             "SELECT * FROM users WHERE email = ?";
 
 
         db.query(
             sql,
-            [email],
+            [email.trim()],
             async function (error, results) {
 
+                // Database error
                 if (error) {
 
-                    console.log(error);
+                    console.log(
+                        "LOGIN DATABASE ERROR:",
+                        error.code,
+                        error.message
+                    );
 
                     return res.status(500).json({
 
@@ -251,9 +274,11 @@ exports.loginUser = async function (req, res)
                 }
 
 
-        
-
-                if (results.length === 0) {
+                // User not found
+                if (
+                    !results ||
+                    results.length === 0
+                ) {
 
                     return res.status(401).json({
 
@@ -266,19 +291,31 @@ exports.loginUser = async function (req, res)
 
                 }
 
-const user = results[0];
 
-console.log("LOGIN USER FOUND:", user.email);
-console.log("LOGIN PASSWORD HASH EXISTS:", !!user.password);
+                const user = results[0];
 
-const passwordMatch =
-await bcrypt.compare(
-password,
-user.password
-);
 
-console.log("PASSWORD MATCH RESULT:", passwordMatch);
+                console.log(
+                    "LOGIN USER FOUND:",
+                    user.email
+                );
 
+
+                // Check password
+                const passwordMatch =
+                    await bcrypt.compare(
+                        password,
+                        user.password
+                    );
+
+
+                console.log(
+                    "PASSWORD MATCH RESULT:",
+                    passwordMatch
+                );
+
+
+                // Incorrect password
                 if (!passwordMatch) {
 
                     return res.status(401).json({
@@ -293,29 +330,33 @@ console.log("PASSWORD MATCH RESULT:", passwordMatch);
                 }
 
 
-                // create jwt token
+                // Create JWT token
+                const token =
+                    jwt.sign(
 
-                const token = jwt.sign(
+                        {
+                            id: user.id,
 
-                    {
-                        id: user.id,
-                        email: user.email,
-                        name:user.name,
-                        phone_number: user.phone_number,
-                        role: user.role
+                            email: user.email,
+
+                            name: user.name,
+
+                            phone_number:
+                                user.phone_number,
+
+                            role: user.role
                         },
 
-                    process.env.JWT_SECRET,
+                        process.env.JWT_SECRET,
 
-                    {
-                        expiresIn: "30min"
-                    }
+                        {
+                            expiresIn: "30min"
+                        }
 
-                );
+                    );
 
 
-                // if login success
-
+                // Login successful
                 return res.status(200).json({
 
                     success: true,
@@ -332,7 +373,9 @@ console.log("PASSWORD MATCH RESULT:", passwordMatch);
                         name: user.name,
 
                         email: user.email,
-                        phone_number: user.phone_number,
+
+                        phone_number:
+                            user.phone_number,
 
                         role: user.role
 
@@ -347,7 +390,10 @@ console.log("PASSWORD MATCH RESULT:", passwordMatch);
 
     catch (error) {
 
-        console.log(error);
+        console.log(
+            "LOGIN SERVER ERROR:",
+            error
+        );
 
         return res.status(500).json({
 
@@ -363,7 +409,9 @@ console.log("PASSWORD MATCH RESULT:", passwordMatch);
 };
 
 
-// we can get user profile
+// ======================================================
+// GET USER PROFILE
+// ======================================================
 
 exports.getProfile = function (req, res) {
 
@@ -388,11 +436,13 @@ exports.getProfile = function (req, res) {
         [userId],
         function (error, results) {
 
-    
-
+            // Database error
             if (error) {
 
-                console.log(error);
+                console.log(
+                    "PROFILE DATABASE ERROR:",
+                    error
+                );
 
                 return res.status(500).json({
 
@@ -406,8 +456,7 @@ exports.getProfile = function (req, res) {
             }
 
 
-        
-
+            // User not found
             if (results.length === 0) {
 
                 return res.status(404).json({
@@ -422,12 +471,8 @@ exports.getProfile = function (req, res) {
             }
 
 
-        
-
             const user = results[0];
 
-
-            
 
             return res.status(200).json({
 

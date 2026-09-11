@@ -7,12 +7,10 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
+    port: Number(process.env.DB_PORT),
 
     waitForConnections: true,
     connectionLimit: 10,
-    maxIdle: 10,
-    idleTimeout: 60000,
     queueLimit: 0,
 
     enableKeepAlive: true,
@@ -20,16 +18,21 @@ const db = mysql.createPool({
 });
 
 db.getConnection(function (error, connection) {
+
     if (error) {
+
         console.log(
-            "MySQL connection failed:",
+            "MYSQL CONNECTION ERROR:",
             error.code,
             error.message
         );
+
         return;
     }
 
-    console.log("MySQL connected successfully!");
+    console.log(
+        "MYSQL CONNECTED SUCCESSFULLY!"
+    );
 
     connection.release();
 });
