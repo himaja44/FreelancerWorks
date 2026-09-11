@@ -178,7 +178,7 @@ function Register() {
         try {
 
             const response = await fetch(
-                "https://freelancerworks-production.up.railway.app/api/users/register",
+                "http://localhost:5000/api/users/register",
                 {
                     method: "POST",
 

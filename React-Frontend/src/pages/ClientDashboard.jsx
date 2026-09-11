@@ -55,7 +55,7 @@ function ClientDashboard() {
 
             const response =
                 await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/jobs/my-jobs",
+                    "http://localhost:5000/api/jobs/my-jobs",
                     {
                         method: "GET",
 
@@ -575,15 +575,13 @@ function ClientDashboard() {
                                             </div>
 
 
-                                            <button
+<button
     onClick={() =>
         navigate(`/jobs/${job.id}`)
     }
 >
     View Job →
 </button>
-                                                View Job →
-    
 
                                         </div>
 

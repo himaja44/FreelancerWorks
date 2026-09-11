@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../../components/Navbar";
-
+import { Link } from "react-router-dom";
 import { getJobs } from "../../services/api";
 
 import "./Jobs.css";
@@ -199,12 +199,13 @@ function Jobs() {
 
                                     </div>
 
-                                <a
-    href={`/jobs/${job.id}`}
+                               
+<Link
+    to={`/jobs/${job.id}`}
     className="view-job-button"
 >
     View Details →
-</a>
+</Link>
                                    
 
                                 </div>

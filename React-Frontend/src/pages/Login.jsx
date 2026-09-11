@@ -1,85 +1,65 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./Login.css";
+
 
 function Login() {
 
     const navigate = useNavigate();
 
+
     const [email, setEmail] = useState("");
+
     const [password, setPassword] = useState("");
 
     const [error, setError] = useState("");
+
     const [loading, setLoading] = useState(false);
 
 
-    async function handleSubmit(event) {
+    // ==========================================
+    // LOGIN
+    // ==========================================
+
+    async function handleLogin(event) {
 
         event.preventDefault();
 
         setError("");
-
-
-        // ==========================================
-        // VALIDATION
-        // ==========================================
-
-        if (!email.trim()) {
-
-            setError("Please enter your email.");
-
-            return;
-        }
-
-
-        if (!password) {
-
-            setError("Please enter your password.");
-
-            return;
-        }
-
-
-        // Correct email validation
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-        if (!emailPattern.test(email.trim())) {
-
-            setError("Please enter a valid email address.");
-
-            return;
-        }
-
 
         setLoading(true);
 
 
         try {
 
-            // ==========================================
-            // LOGIN API
-            // ==========================================
+            const response =
+                await fetch(
+                    "http://localhost:5000/api/users/login",
+                    {
+                        method: "POST",
 
-            const response = await fetch(
-    "https://freelancerworks-production.up.railway.app/api/users/login",
-                {
-                    method: "POST",
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+                        body:
+                            JSON.stringify({
 
-                    body: JSON.stringify({
-                        email: email.trim(),
-                        password: password
-                    })
-                }
-            );
+                                email:
+                                    email.trim(),
+
+                                password:
+                                    password
+
+                            })
+                    }
+                );
 
 
-            const data = await response.json();
+            const data =
+                await response.json();
 
 
             console.log(
@@ -87,10 +67,6 @@ function Login() {
                 data
             );
 
-
-            // ==========================================
-            // LOGIN FAILED
-            // ==========================================
 
             if (!response.ok) {
 
@@ -100,40 +76,13 @@ function Login() {
                 );
 
                 return;
+
             }
 
 
-            // ==========================================
-            // CHECK TOKEN
-            // ==========================================
-
-            if (!data.token) {
-
-                setError(
-                    "Login failed. Token was not received."
-                );
-
-                return;
-            }
-
-
-            // ==========================================
-            // CHECK USER
-            // ==========================================
-
-            if (!data.user) {
-
-                setError(
-                    "Login failed. User information was not received."
-                );
-
-                return;
-            }
-
-
-            // ==========================================
-            // SAVE TOKEN
-            // ==========================================
+            // ==================================
+            // SAVE LOGIN DETAILS
+            // ==================================
 
             localStorage.setItem(
                 "token",
@@ -141,43 +90,43 @@ function Login() {
             );
 
 
-            // ==========================================
-            // SAVE USER
-            // ==========================================
-
             localStorage.setItem(
                 "user",
                 JSON.stringify(data.user)
             );
 
 
-            console.log(
-                "LOGGED-IN USER:",
-                data.user
-            );
+            // ==================================
+            // REDIRECT BASED ON ROLE
+            // ==================================
 
+            if (
+                data.user.role ===
+                "freelancer"
+            ) {
 
-            // ==========================================
-            // GET USER ROLE
-            // ==========================================
+                navigate(
+                    "/freelancer-dashboard"
+                );
 
-            const role =
-                (data.user.role || "")
-                    .toLowerCase()
-                    .trim();
+            }
 
+            else if (
+                data.user.role ===
+                "client"
+            ) {
 
-            // ==========================================
-            // REDIRECT
-            // ==========================================
+                navigate(
+                    "/client-dashboard"
+                );
 
-            if (role === "client") {
+            }
 
-                navigate("/client-dashboard");
+            else {
 
-            } else {
-
-                navigate("/jobs");
+                setError(
+                    "Invalid user role."
+                );
 
             }
 
@@ -189,6 +138,7 @@ function Login() {
                 "Login error:",
                 error
             );
+
 
             setError(
                 "Unable to connect to server."
@@ -205,22 +155,37 @@ function Login() {
     }
 
 
+    // ==========================================
+    // PAGE
+    // ==========================================
+
     return (
 
-        <div className="login-page">
-
-            <div className="login-card">
+        <main className="login-page">
 
 
-                {/* ==================================
+            {/* =====================================
+                LOGIN CARD
+            ===================================== */}
+
+            <section className="login-card">
+
+
+                {/* =================================
                     BRAND
-                ================================== */}
+                ================================= */}
 
                 <div className="login-brand">
 
                     <div className="login-logo">
-                        Freelancer <span>Works</span>
+
+                        Freelancer
+                        <span>
+                            Works
+                        </span>
+
                     </div>
+
 
                     <p>
                         Welcome back
@@ -229,9 +194,9 @@ function Login() {
                 </div>
 
 
-                {/* ==================================
-                    TITLE
-                ================================== */}
+                {/* =================================
+                    HEADING
+                ================================= */}
 
                 <div className="login-heading">
 
@@ -239,22 +204,27 @@ function Login() {
                         Login to your account
                     </h1>
 
+
                     <p>
-                        Continue your journey with FreelancerWorks.
+                        Continue your journey with
+                        FreelancerWorks.
                     </p>
 
                 </div>
 
 
-                {/* ==================================
+                {/* =================================
                     ERROR
-                ================================== */}
+                ================================= */}
 
                 {error && (
 
                     <div className="login-error">
 
-                        <span>⚠</span>
+                        <span>
+                            ⚠
+                        </span>
+
 
                         <p>
                             {error}
@@ -265,13 +235,13 @@ function Login() {
                 )}
 
 
-                {/* ==================================
+                {/* =================================
                     FORM
-                ================================== */}
+                ================================= */}
 
                 <form
                     className="login-form"
-                    onSubmit={handleSubmit}
+                    onSubmit={handleLogin}
                 >
 
 
@@ -283,15 +253,20 @@ function Login() {
                             Email Address
                         </label>
 
+
                         <input
                             id="email"
                             type="email"
-                            placeholder="Enter your email"
                             value={email}
-                            onChange={(event) =>
-                                setEmail(event.target.value)
+                            onChange={
+                                (event) =>
+                                    setEmail(
+                                        event.target.value
+                                    )
                             }
+                            placeholder="Enter your email"
                             autoComplete="email"
+                            required
                         />
 
                     </div>
@@ -305,15 +280,20 @@ function Login() {
                             Password
                         </label>
 
+
                         <input
                             id="password"
                             type="password"
-                            placeholder="Enter your password"
                             value={password}
-                            onChange={(event) =>
-                                setPassword(event.target.value)
+                            onChange={
+                                (event) =>
+                                    setPassword(
+                                        event.target.value
+                                    )
                             }
+                            placeholder="Enter your password"
                             autoComplete="current-password"
+                            required
                         />
 
                     </div>
@@ -338,9 +318,9 @@ function Login() {
                 </form>
 
 
-                {/* ==================================
+                {/* =================================
                     REGISTER
-                ================================== */}
+                ================================= */}
 
                 <div className="register-section">
 
@@ -348,40 +328,36 @@ function Login() {
                         Don't have an account?
                     </span>
 
-                    <button
-                        type="button"
+
+                    <Link
+                        to="/register"
                         className="register-link"
-                        onClick={() =>
-                            navigate("/register")
-                        }
                     >
                         Create an account
-                    </button>
+                    </Link>
 
                 </div>
 
 
-                {/* ==================================
+                {/* =================================
                     BACK HOME
-                ================================== */}
+                ================================= */}
 
-                <button
-                    type="button"
+                <Link
+                    to="/"
                     className="back-home"
-                    onClick={() =>
-                        navigate("/")
-                    }
                 >
                     ← Back to Home
-                </button>
+                </Link>
 
 
-            </div>
+            </section>
 
-        </div>
+        </main>
 
     );
 
 }
+
 
 export default Login;

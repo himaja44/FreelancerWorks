@@ -11,10 +11,6 @@ function Applicants() {
     const { jobId } = useParams();
 
 
-    // ==========================================
-    // STATE
-    // ==========================================
-
     const [user, setUser] = useState({});
 
     const [job, setJob] = useState(null);
@@ -26,15 +22,14 @@ function Applicants() {
     const [error, setError] = useState("");
 
 
-    // ==========================================
-    // LOAD USER
-    // ==========================================
+    // ==================================================
+    // CHECK USER
+    // ==================================================
 
     useEffect(() => {
 
         const token =
             localStorage.getItem("token");
-
 
         if (!token) {
 
@@ -54,6 +49,8 @@ function Applicants() {
         setUser(storedUser);
 
 
+        // Only clients can access applicants
+
         if (
             storedUser.role &&
             storedUser.role.toLowerCase() !== "client"
@@ -66,9 +63,9 @@ function Applicants() {
     }, [navigate]);
 
 
-    // ==========================================
+    // ==================================================
     // LOAD APPLICANTS
-    // ==========================================
+    // ==================================================
 
     useEffect(() => {
 
@@ -78,7 +75,20 @@ function Applicants() {
                 localStorage.getItem("token");
 
 
-            if (!token || !jobId) {
+            if (!token) {
+
+                navigate("/login");
+
+                return;
+
+            }
+
+
+            if (!jobId) {
+
+                setError("Job ID is missing.");
+
+                setLoading(false);
 
                 return;
 
@@ -92,45 +102,16 @@ function Applicants() {
                 setError("");
 
 
-                // Get job details
-
-                const jobResponse =
-                    await fetch(
-                        "https://freelancerworks-production.up.railway.app/api/applications/job/${jobId}",
-                        {
-                            headers: {
-                                "Authorization":
-                                    `Bearer ${token}`
-                            }
-                        }
-                    );
-
-
-                const jobData =
-                    await jobResponse.json();
-
-
-                console.log(
-                    "JOB RESPONSE:",
-                    jobData
-                );
-
-
-                if (jobResponse.ok) {
-
-                    setJob(jobData.job);
-
-                }
-
-
-                // ==================================
-                // GET APPLICANTS
-                // ==================================
+                // ======================================
+                // GET JOB + APPLICANTS
+                // ======================================
 
                 const response =
                     await fetch(
-                       "https://freelancerworks-production.up.railway.app/api/applications/${applicationId}/status",
+                        `http://localhost:5000/api/applications/job/${jobId}`,
                         {
+                            method: "GET",
+
                             headers: {
                                 "Authorization":
                                     `Bearer ${token}`
@@ -149,6 +130,30 @@ function Applicants() {
                 );
 
 
+                // ======================================
+                // TOKEN ERROR
+                // ======================================
+
+                if (
+                    response.status === 401 ||
+                    response.status === 403
+                ) {
+
+                    localStorage.removeItem("token");
+
+                    localStorage.removeItem("user");
+
+                    navigate("/login");
+
+                    return;
+
+                }
+
+
+                // ======================================
+                // OTHER ERROR
+                // ======================================
+
                 if (!response.ok) {
 
                     setError(
@@ -159,6 +164,15 @@ function Applicants() {
                     return;
 
                 }
+
+
+                // ======================================
+                // SUCCESS
+                // ======================================
+
+                setJob(
+                    data.job || null
+                );
 
 
                 setApplicants(
@@ -192,12 +206,12 @@ function Applicants() {
 
         loadApplicants();
 
-    }, [jobId]);
+    }, [jobId, navigate]);
 
 
-    // ==========================================
+    // ==================================================
     // UPDATE APPLICATION STATUS
-    // ==========================================
+    // ==================================================
 
     async function updateStatus(
         applicationId,
@@ -208,13 +222,24 @@ function Applicants() {
             localStorage.getItem("token");
 
 
+        if (!token) {
+
+            navigate("/login");
+
+            return;
+
+        }
+
+
         try {
+
+            setError("");
+
 
             const response =
                 await fetch(
-                    "https://freelancerworks-production.up.railway.app${applicant.resume}",
+                    `http://localhost:5000/api/applications/${applicationId}/status`,
                     {
-
                         method: "PUT",
 
                         headers: {
@@ -246,6 +271,30 @@ function Applicants() {
             );
 
 
+            // ======================================
+            // TOKEN ERROR
+            // ======================================
+
+            if (
+                response.status === 401 ||
+                response.status === 403
+            ) {
+
+                localStorage.removeItem("token");
+
+                localStorage.removeItem("user");
+
+                navigate("/login");
+
+                return;
+
+            }
+
+
+            // ======================================
+            // ERROR
+            // ======================================
+
             if (!response.ok) {
 
                 setError(
@@ -258,23 +307,37 @@ function Applicants() {
             }
 
 
-            // Update UI immediately
+            // ======================================
+            // UPDATE UI
+            // ======================================
 
             setApplicants(
                 previousApplicants =>
+
                     previousApplicants.map(
-                        applicant =>
+                        applicant => {
 
-                            applicant.id ===
-                            applicationId
+                            if (
+                                applicant.id ===
+                                applicationId
+                            ) {
 
-                                ? {
+                                return {
+
                                     ...applicant,
-                                    status: status
-                                }
 
-                                : applicant
+                                    status: status
+
+                                };
+
+                            }
+
+
+                            return applicant;
+
+                        }
                     )
+
             );
 
         }
@@ -296,9 +359,9 @@ function Applicants() {
     }
 
 
-    // ==========================================
+    // ==================================================
     // LOGOUT
-    // ==========================================
+    // ==================================================
 
     function handleLogout() {
 
@@ -311,9 +374,9 @@ function Applicants() {
     }
 
 
-    // ==========================================
+    // ==================================================
     // LOADING
-    // ==========================================
+    // ==================================================
 
     if (loading) {
 
@@ -334,18 +397,18 @@ function Applicants() {
     }
 
 
-    // ==========================================
+    // ==================================================
     // PAGE
-    // ==========================================
+    // ==================================================
 
     return (
 
         <div className="applicants-page">
 
 
-            {/* =====================================
+            {/* =========================================
                 NAVBAR
-            ===================================== */}
+            ========================================= */}
 
             <header className="applicants-navbar">
 
@@ -420,10 +483,9 @@ function Applicants() {
             </header>
 
 
-
-            {/* =====================================
+            {/* =========================================
                 MAIN
-            ===================================== */}
+            ========================================= */}
 
             <main className="applicants-main">
 
@@ -448,10 +510,9 @@ function Applicants() {
                 </section>
 
 
-
-                {/* =================================
+                {/* =====================================
                     ERROR
-                ================================= */}
+                ===================================== */}
 
                 {error && (
 
@@ -464,10 +525,9 @@ function Applicants() {
                 )}
 
 
-
-                {/* =================================
+                {/* =====================================
                     NO APPLICANTS
-                ================================= */}
+                ===================================== */}
 
                 {!error &&
                 applicants.length === 0 && (
@@ -489,10 +549,9 @@ function Applicants() {
                 )}
 
 
-
-                {/* =================================
-                    APPLICANTS
-                ================================= */}
+                {/* =====================================
+                    APPLICANTS LIST
+                ===================================== */}
 
                 {applicants.length > 0 && (
 
@@ -507,14 +566,18 @@ function Applicants() {
 
 
                             <strong>
+
                                 {applicants.length}{" "}
-                                {applicants.length === 1
-                                    ? "Applicant"
-                                    : "Applicants"}
+
+                                {
+                                    applicants.length === 1
+                                        ? "Applicant"
+                                        : "Applicants"
+                                }
+
                             </strong>
 
                         </div>
-
 
 
                         {applicants.map(
@@ -554,19 +617,19 @@ function Applicants() {
                                                     (
                                                         applicant.status ||
                                                         "pending"
-                                                    )
-                                                        .toLowerCase()
+                                                    ).toLowerCase()
                                                 }`
                                             }
                                         >
+
                                             {
                                                 applicant.status ||
                                                 "Pending"
                                             }
+
                                         </span>
 
                                     </div>
-
 
 
                                     {/* DETAILS */}
@@ -580,14 +643,16 @@ function Applicants() {
                                                 Phone
                                             </span>
 
+
                                             <strong>
                                                 {
-                                                    applicant.phone
+                                                    applicant.phone ||
+                                                    applicant.phone_number ||
+                                                    "-"
                                                 }
                                             </strong>
 
                                         </div>
-
 
 
                                         <div>
@@ -596,19 +661,22 @@ function Applicants() {
                                                 Expected Salary
                                             </span>
 
+
                                             <strong>
+
                                                 ₹
                                                 {
                                                     Number(
-                                                        applicant.expected_salary
+                                                        applicant.expected_salary ||
+                                                        0
                                                     ).toLocaleString(
                                                         "en-IN"
                                                     )
                                                 }
+
                                             </strong>
 
                                         </div>
-
 
 
                                         <div>
@@ -616,6 +684,7 @@ function Applicants() {
                                             <span>
                                                 Applied On
                                             </span>
+
 
                                             <strong>
 
@@ -641,9 +710,7 @@ function Applicants() {
 
                                         </div>
 
-
                                     </div>
-
 
 
                                     {/* RESUME */}
@@ -659,15 +726,19 @@ function Applicants() {
 
                                             <a
                                                 href={
-                                                    applicant.resume.startsWith("http")
+                                                    applicant.resume.startsWith(
+                                                        "http"
+                                                    )
                                                         ? applicant.resume
-                                                        : `https://freelancerworks-production.up.railway.app${applicant.resume}`
+                                                        : `http://localhost:5000${applicant.resume}`
                                                 }
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="view-resume-button"
                                             >
+
                                                 📄 View Resume
+
                                             </a>
 
                                         ) : (
@@ -681,7 +752,6 @@ function Applicants() {
                                     </div>
 
 
-
                                     {/* COVER LETTER */}
 
                                     <div className="cover-letter">
@@ -693,12 +763,12 @@ function Applicants() {
 
                                         <p>
                                             {
-                                                applicant.cover_letter
+                                                applicant.cover_letter ||
+                                                "No cover letter provided."
                                             }
                                         </p>
 
                                     </div>
-
 
 
                                     {/* ACTIONS */}
@@ -707,8 +777,8 @@ function Applicants() {
                                         (
                                             applicant.status ||
                                             "Pending"
-                                        ).toLowerCase()
-                                        === "pending"
+                                        ).toLowerCase() ===
+                                        "pending"
                                         && (
 
                                             <div className="applicant-actions">
@@ -744,7 +814,6 @@ function Applicants() {
 
                                         )
                                     }
-
 
                                 </article>
 

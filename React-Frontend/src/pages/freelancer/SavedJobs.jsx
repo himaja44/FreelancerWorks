@@ -45,7 +45,7 @@ function SavedJobs() {
 
                 const response =
                     await fetch(
-                        "https://freelancerworks-production.up.railway.app/api/saved-jobs",
+                        "http://localhost:5000/api/saved-jobs",
                         {
                             headers: {
                                 "Authorization":
@@ -123,18 +123,18 @@ function SavedJobs() {
 
         try {
 
-            const response =
-                await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/saved-jobs/${jobId}",
-                    {
-                        method: "DELETE",
+           const response =
+    await fetch(
+        `http://localhost:5000/api/saved-jobs/${jobId}`,
+        {
+            method: "DELETE",
 
-                        headers: {
-                            "Authorization":
-                                `Bearer ${token}`
-                        }
-                    }
-                );
+            headers: {
+                "Authorization":
+                    `Bearer ${token}`
+            }
+        }
+    );
 
 
             const data =

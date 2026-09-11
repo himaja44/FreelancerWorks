@@ -55,11 +55,14 @@ function Apply() {
 
             ...prev,
 
-            name: storedUser.name || "",
+            name:
+                storedUser.name || "",
 
-            email: storedUser.email || "",
+            email:
+                storedUser.email || "",
 
-            phone: storedUser.phone_number || ""
+            phone:
+                storedUser.phone_number || ""
 
         }));
 
@@ -83,7 +86,7 @@ function Apply() {
 
                 const response =
                     await fetch(
-                        `https://freelancerworks-production.up.railway.app/api/jobs/${id}`
+                        `http://localhost:5000/api/jobs/${id}`
                     );
 
 
@@ -378,9 +381,8 @@ function Apply() {
 
             const response =
                 await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/applications",
+                    "http://localhost:5000/api/applications",
                     {
-
                         method: "POST",
 
                         headers: {
@@ -617,7 +619,6 @@ function Apply() {
             </header>
 
 
-
             {/* =====================================
                 MAIN
             ===================================== */}
@@ -642,7 +643,6 @@ function Apply() {
                     </h2>
 
                 </div>
-
 
 
                 {/* =================================
@@ -678,7 +678,6 @@ function Apply() {
                     )}
 
 
-
                     <form
                         onSubmit={handleSubmit}
                     >
@@ -708,7 +707,6 @@ function Apply() {
                         </div>
 
 
-
                         {/* EMAIL */}
 
                         <div className="form-group">
@@ -731,7 +729,6 @@ function Apply() {
                             />
 
                         </div>
-
 
 
                         {/* PHONE */}
@@ -758,7 +755,6 @@ function Apply() {
                         </div>
 
 
-
                         {/* EXPECTED SALARY */}
 
                         <div className="form-group">
@@ -781,7 +777,6 @@ function Apply() {
                             />
 
                         </div>
-
 
 
                         {/* RESUME */}
@@ -811,7 +806,6 @@ function Apply() {
                         </div>
 
 
-
                         {/* COVER LETTER */}
 
                         <div className="form-group">
@@ -834,7 +828,6 @@ function Apply() {
                             />
 
                         </div>
-
 
 
                         {/* ACTIONS */}

@@ -13,8 +13,7 @@ function PostJob() {
     // USER
     // ==========================================
 
-    const [user, setUser] =
-        useState({});
+    const [user, setUser] = useState({});
 
 
     // ==========================================
@@ -24,45 +23,23 @@ function PostJob() {
     const [formData, setFormData] = useState({
 
         title: "",
-
         description: "",
-
         category: "",
-
         skills: "",
-
         requirements: "",
-
         responsibilities: "",
-
         budget_min: "",
-
         budget_max: "",
-
         job_type: ""
 
     });
 
 
-    // ==========================================
-    // SUBMITTING
-    // ==========================================
-
     const [submitting, setSubmitting] =
         useState(false);
 
-
-    // ==========================================
-    // ERROR
-    // ==========================================
-
     const [error, setError] =
         useState("");
-
-
-    // ==========================================
-    // SUCCESS
-    // ==========================================
 
     const [success, setSuccess] =
         useState("");
@@ -136,7 +113,7 @@ function PostJob() {
 
 
     // ==========================================
-    // SUBMIT FORM
+    // SUBMIT JOB
     // ==========================================
 
     async function handleSubmit(event) {
@@ -145,7 +122,6 @@ function PostJob() {
 
 
         setError("");
-
         setSuccess("");
 
 
@@ -303,14 +279,13 @@ function PostJob() {
         try {
 
             // ==================================
-            // API REQUEST
+            // POST JOB API
             // ==================================
 
             const response =
                 await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/jobs",
+                    "http://localhost:5000/api/jobs",
                     {
-
                         method: "POST",
 
                         headers: {
@@ -374,7 +349,27 @@ function PostJob() {
 
 
             // ==================================
-            // ERROR
+            // TOKEN ERROR
+            // ==================================
+
+            if (
+                response.status === 401 ||
+                response.status === 403
+            ) {
+
+                localStorage.removeItem("token");
+
+                localStorage.removeItem("user");
+
+                navigate("/login");
+
+                return;
+
+            }
+
+
+            // ==================================
+            // API ERROR
             // ==================================
 
             if (!response.ok) {
@@ -403,30 +398,22 @@ function PostJob() {
             setFormData({
 
                 title: "",
-
                 description: "",
-
                 category: "",
-
                 skills: "",
-
                 requirements: "",
-
                 responsibilities: "",
-
                 budget_min: "",
-
                 budget_max: "",
-
                 job_type: ""
 
             });
 
 
-            // Redirect to My Jobs
+            // Go to My Jobs
 
             setTimeout(
-                () => {
+                function () {
 
                     navigate("/my-jobs");
 
@@ -474,6 +461,10 @@ function PostJob() {
     }
 
 
+    // ==========================================
+    // PAGE
+    // ==========================================
+
     return (
 
         <div className="post-job-page">
@@ -502,7 +493,6 @@ function PostJob() {
 
 
                 <nav className="post-job-nav">
-
 
                     <button
                         onClick={() =>
@@ -537,7 +527,6 @@ function PostJob() {
                         My Jobs
                     </button>
 
-
                 </nav>
 
 
@@ -556,9 +545,7 @@ function PostJob() {
 
                 </div>
 
-
             </header>
-
 
 
             {/* =====================================
@@ -588,22 +575,18 @@ function PostJob() {
                 </section>
 
 
-
                 {/* =================================
-                    FORM CARD
+                    FORM
                 ================================= */}
 
                 <section className="post-job-card">
-
 
                     <form
                         onSubmit={handleSubmit}
                     >
 
 
-                        {/* =========================
-                            BASIC INFORMATION
-                        ========================= */}
+                        {/* BASIC INFORMATION */}
 
                         <div className="form-section">
 
@@ -639,7 +622,6 @@ function PostJob() {
                             </div>
 
 
-
                             <div className="form-group">
 
                                 <label>
@@ -660,7 +642,6 @@ function PostJob() {
                                 />
 
                             </div>
-
 
 
                             <div className="form-row">
@@ -685,7 +666,6 @@ function PostJob() {
                                     />
 
                                 </div>
-
 
 
                                 <div className="form-group">
@@ -730,10 +710,7 @@ function PostJob() {
                         </div>
 
 
-
-                        {/* =========================
-                            SKILLS
-                        ========================= */}
+                        {/* SKILLS */}
 
                         <div className="form-section">
 
@@ -764,7 +741,6 @@ function PostJob() {
                             </div>
 
 
-
                             <div className="form-group">
 
                                 <label>
@@ -785,7 +761,6 @@ function PostJob() {
                                 />
 
                             </div>
-
 
 
                             <div className="form-group">
@@ -812,10 +787,7 @@ function PostJob() {
                         </div>
 
 
-
-                        {/* =========================
-                            BUDGET
-                        ========================= */}
+                        {/* BUDGET */}
 
                         <div className="form-section">
 
@@ -849,7 +821,6 @@ function PostJob() {
                                 </div>
 
 
-
                                 <div className="form-group">
 
                                     <label>
@@ -877,10 +848,7 @@ function PostJob() {
                         </div>
 
 
-
-                        {/* =========================
-                            MESSAGES
-                        ========================= */}
+                        {/* MESSAGES */}
 
                         {error && (
 
@@ -904,13 +872,9 @@ function PostJob() {
                         )}
 
 
-
-                        {/* =========================
-                            BUTTONS
-                        ========================= */}
+                        {/* BUTTONS */}
 
                         <div className="post-job-actions">
-
 
                             <button
                                 type="button"
@@ -936,7 +900,6 @@ function PostJob() {
                                     : "Post Job →"}
 
                             </button>
-
 
                         </div>
 

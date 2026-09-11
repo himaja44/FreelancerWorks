@@ -51,16 +51,63 @@ function Profile() {
     // LOAD PROFILE
     // ==========================================
 
-    useEffect(function () {
-
-        loadProfile();
-
-    }, []);
+    
 
 
-    async function loadProfile() {
+        
 
-        if (!token) {
+
+            
+        async function loadProfile() {
+
+    if (!token) {
+
+        navigate("/login");
+
+        return;
+
+    }
+
+
+    try {
+
+        setLoading(true);
+
+        setError("");
+
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/profile",
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "PROFILE RESPONSE:",
+            data
+        );
+
+
+        if (
+            response.status === 401 ||
+            response.status === 403
+        ) {
+
+            localStorage.removeItem("token");
+
+            localStorage.removeItem("user");
 
             navigate("/login");
 
@@ -69,81 +116,63 @@ function Profile() {
         }
 
 
-        try {
+        if (!response.ok) {
 
-            const response =
-                await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/jobs/my-jobs",
-                    {
-                        headers: {
-                            Authorization:
-                                `Bearer ${token}`
-                        }
-                    }
-                );
-
-
-            const data =
-                await response.json();
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    data.message ||
-                    "Unable to load profile."
-                );
-
-            }
-
-
-            setProfile(data.user);
-
-
-            setName(
-                data.user.name || ""
-            );
-
-            setPhone(
-                data.user.phone_number || ""
-            );
-
-            setProfessionalTitle(
-                data.user.professional_title || ""
-            );
-
-            setBio(
-                data.user.bio || ""
-            );
-
-            setSkills(
-                data.user.skills || ""
-            );
-
-        }
-
-        catch (error) {
-
-            console.log(
-                "Profile error:",
-                error
-            );
-
-            setError(
-                error.message ||
+            throw new Error(
+                data.message ||
                 "Unable to load profile."
             );
 
         }
 
-        finally {
 
-            setLoading(false);
+        setProfile(data.user);
 
-        }
+
+        setName(
+            data.user.name || ""
+        );
+
+        setPhone(
+            data.user.phone_number || ""
+        );
+
+        setProfessionalTitle(
+            data.user.professional_title || ""
+        );
+
+        setBio(
+            data.user.bio || ""
+        );
+
+        setSkills(
+            data.user.skills || ""
+        );
 
     }
 
+    catch (error) {
+
+        console.log(
+            "Profile error:",
+            error
+        );
+
+
+        setError(
+            error.message ||
+            "Unable to load profile."
+        );
+
+    }
+
+    finally {
+
+        setLoading(false);
+
+    }
+
+}
 
     // ==========================================
     // SAVE PROFILE
@@ -173,8 +202,8 @@ function Profile() {
 
             const response =
                 await fetch(
-                   "https://freelancerworks-production.up.railway.app/api/profile" ,
-                    {
+                   "http://localhost:5000/api/profile",
+                   {
                         method: "PUT",
 
                         headers: {

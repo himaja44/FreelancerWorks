@@ -9,6 +9,10 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/freelancer/Profile";
+import ProtectedRoute
+    from "./components/ProtectedRoute";
+
+
 
 
 // ==========================================
@@ -149,6 +153,17 @@ function App() {
                     path="/"
                     element={<Home />}
                 />
+                  <Route
+                    path="/jobs/:id"
+                    element={
+                        <ProtectedRoute
+                            allowedRole="freelancer"
+                        >
+                            <JobDetails />
+                        </ProtectedRoute>
+                    }
+                />
+
 
 
                 <Route

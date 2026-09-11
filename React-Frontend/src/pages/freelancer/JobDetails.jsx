@@ -24,8 +24,8 @@ function JobDetails() {
             setError("");
 
             const response = await fetch(
-              `https://freelancerworks-production.up.railway.app/api/jobs/${id}`  
-            );
+    `http://localhost:5000/api/jobs/${id}`
+);
 
             const data = await response.json();
 

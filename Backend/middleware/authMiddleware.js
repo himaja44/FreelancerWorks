@@ -1,18 +1,15 @@
 const jwt = require("jsonwebtoken");
 
 
-const verifyToken = function (req, res, next) {
+function verifyToken(req, res, next) {
 
     try {
-
-        
 
         const authHeader =
             req.headers.authorization;
 
 
-
-
+        // Check Authorization header
         if (!authHeader) {
 
             return res.status(401).json({
@@ -27,13 +24,26 @@ const verifyToken = function (req, res, next) {
         }
 
 
-        //bearer token
+        // Check Bearer format
+        if (
+            !authHeader.startsWith("Bearer ")
+        ) {
+
+            return res.status(401).json({
+
+                success: false,
+
+                message:
+                    "Invalid authorization format."
+
+            });
+
+        }
+
 
         const token =
             authHeader.split(" ")[1];
 
-
-        // Check  the token
 
         if (!token) {
 
@@ -42,15 +52,14 @@ const verifyToken = function (req, res, next) {
                 success: false,
 
                 message:
-                    "Access denied. Invalid token."
+                    "Access denied. Token missing."
 
             });
 
         }
 
 
-        // Verify the Jwt
-
+        // Verify JWT
         const decoded =
             jwt.verify(
                 token,
@@ -58,12 +67,19 @@ const verifyToken = function (req, res, next) {
             );
 
 
-        // Store user information
-
+        // Store decoded user information
         req.user = decoded;
 
 
-        // Continue to next function
+        console.log(
+            "AUTHENTICATED USER:",
+            {
+                id: decoded.id,
+                email: decoded.email,
+                role: decoded.role
+            }
+        );
+
 
         next();
 
@@ -71,7 +87,11 @@ const verifyToken = function (req, res, next) {
 
     catch (error) {
 
-        console.log(error.message);
+        console.log(
+            "AUTH MIDDLEWARE ERROR:",
+            error.message
+        );
+
 
         return res.status(401).json({
 
@@ -84,7 +104,7 @@ const verifyToken = function (req, res, next) {
 
     }
 
-};
+}
 
 
 module.exports = verifyToken;

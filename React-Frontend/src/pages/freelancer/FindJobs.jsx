@@ -47,7 +47,7 @@ function FindJobs() {
 
 
                 const response = await fetch(
-"https://freelancerworks-production.up.railway.app/api/jobs/"
+"http://localhost:5000/api/jobs"
                 );
 
 
@@ -130,7 +130,7 @@ function FindJobs() {
 
                 const response =
                     await fetch(
-                       "https://freelancerworks-production.up.railway.app/api/saved-jobs",
+                       "http://localhost:5000/api/saved-jobs",
                        {
 
                             headers: {
@@ -217,18 +217,18 @@ function FindJobs() {
 
             if (isSaved) {
 
-                const response =
-                    await fetch(
-                        "https://freelancerworks-production.up.railway.app/api/saved-jobs/${jobId}",
-                        {
-                            method: "DELETE",
+               const response =
+    await fetch(
+        `http://localhost:5000/api/saved-jobs/${jobId}`,
+        {
+            method: "DELETE",
 
-                            headers: {
-                                "Authorization":
-                                    `Bearer ${token}`
-                            }
-                        }
-                    );
+            headers: {
+                "Authorization":
+                    `Bearer ${token}`
+            }
+        }
+    );
 
 
                 const data =
@@ -261,27 +261,27 @@ function FindJobs() {
             else {
 
                 const response =
-                    await fetch(
-                       "https://freelancerworks-production.up.railway.app/api/saved-jobs",
-                        {
-                            method: "POST",
+    await fetch(
+        "http://localhost:5000/api/saved-jobs",
+        {
+            method: "POST",
 
-                            headers: {
+            headers: {
 
-                                "Content-Type":
-                                    "application/json",
+                "Content-Type":
+                    "application/json",
 
-                                "Authorization":
-                                    `Bearer ${token}`
+                "Authorization":
+                    `Bearer ${token}`
 
-                            },
+            },
 
-                            body:
-                                JSON.stringify({
-                                    job_id: jobId
-                                })
-                        }
-                    );
+            body:
+                JSON.stringify({
+                    job_id: jobId
+                })
+        }
+    );
 
 
                 const data =

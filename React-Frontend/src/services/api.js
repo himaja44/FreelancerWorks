@@ -1,30 +1,20 @@
-// CHANGE TO
-
-const API_URL = "https://freelancerworks-production.up.railway.app/api";
-
-
-// Get all jobs
-
 export async function getJobs() {
 
     const response = await fetch(
-        `${API_URL}/jobs`
+        "http://localhost:5000/api/jobs"
     );
 
+    const data = await response.json();
 
     if (!response.ok) {
 
         throw new Error(
-            "Failed to load jobs"
+            data.message ||
+            "Unable to load jobs."
         );
 
     }
 
-
-    const data =
-        await response.json();
-
-
-    return data.jobs;
+    return data.jobs || [];
 
 }
