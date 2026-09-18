@@ -1,0 +1,430 @@
+/* ==========================================
+   APPLY JOB PAGE
+========================================== */
+
+.page {
+    min-height: calc(100vh - 88px);
+    background: #f7f8fc;
+    color: #111827;
+    padding: 55px 20px 80px;
+}
+
+
+/* ==========================================
+   MAIN APPLICATION CONTAINER
+========================================== */
+
+.page > h1,
+.page > .job-title,
+.page > .application-form,
+.page > .success-message,
+.page > .error-message {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page > h1 {
+    text-align: center;
+
+    font-size: 46px;
+    line-height: 1.15;
+
+    margin-top: 10px;
+    margin-bottom: 12px;
+
+    color: #111827;
+}
+
+
+/* ==========================================
+   JOB TITLE
+========================================== */
+
+.job-title {
+    text-align: center;
+
+    color: #6254ff;
+
+    font-size: 19px;
+    font-weight: 600;
+
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.application-form {
+
+    background: white;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 22px;
+
+    padding: 40px 45px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(20, 30, 50, 0.06);
+}
+
+
+/* ==========================================
+   FORM GROUP
+========================================== */
+
+.form-group {
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.form-group label {
+
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 9px;
+}
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d8deea;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    border-radius: 10px;
+
+    padding: 13px 15px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ==========================================
+   INPUT HEIGHT
+========================================== */
+
+.form-group input {
+
+    height: 48px;
+}
+
+
+/* ==========================================
+   TEXTAREA
+========================================== */
+
+.form-group textarea {
+
+    min-height: 150px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   PLACEHOLDER
+========================================== */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color: #94a3b8;
+}
+
+
+/* ==========================================
+   INPUT FOCUS
+========================================== */
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: #6254ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(98, 84, 255, 0.10);
+}
+
+
+/* ==========================================
+   RESUME UPLOAD
+========================================== */
+
+.form-group input[type="file"] {
+
+    height: auto;
+
+    padding: 11px;
+
+    background: #f8f9fd;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+.success-message,
+.error-message {
+
+    border-radius: 10px;
+
+    padding: 13px 16px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   SUCCESS MESSAGE
+========================================== */
+
+.success-message {
+
+    background: #ecfdf3;
+
+    border: 1px solid #b7ebcd;
+
+    color: #15803d;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.error-message {
+
+    background: #fff1f2;
+
+    border: 1px solid #fecdd3;
+
+    color: #dc2626;
+}
+
+
+/* ==========================================
+   BUTTON CONTAINER
+========================================== */
+
+.form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-top: 10px;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin-top: 10px;
+}
+
+
+/* ==========================================
+   ALL BUTTONS
+========================================== */
+
+.form-actions button {
+
+    border-radius: 10px;
+
+    padding: 13px 22px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* ==========================================
+   CANCEL BUTTON
+========================================== */
+
+.form-actions button[type="button"] {
+
+    background: white;
+
+    color: #475569;
+
+    border: 1px solid #d5dbe6;
+}
+
+
+.form-actions button[type="button"]:hover {
+
+    background: #f8f9fd;
+
+    border-color: #c5ccda;
+}
+
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.form-actions button[type="submit"] {
+
+    background: #6254ff;
+
+    color: white;
+
+    border: 1px solid #6254ff;
+
+    min-width: 180px;
+}
+
+
+.form-actions button[type="submit"]:hover {
+
+    background: #5143e8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(98, 84, 255, 0.25);
+}
+
+
+/* ==========================================
+   DISABLED BUTTON
+========================================== */
+
+.form-actions button:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.page > h2 {
+
+    text-align: center;
+
+    color: #58708e;
+
+    font-size: 20px;
+
+    padding-top: 100px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .page {
+
+        padding: 35px 15px 60px;
+    }
+
+
+    .page > h1 {
+
+        font-size: 36px;
+    }
+
+
+    .application-form {
+
+        padding: 30px 22px;
+
+        border-radius: 16px;
+    }
+
+
+    .form-actions {
+
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+
+    .form-actions button {
+
+        width: 100%;
+    }
+
+
+    .form-actions button[type="submit"] {
+
+        min-width: auto;
+    }
+
+}

@@ -1,0 +1,588 @@
+/* ==========================================
+   CLIENT DASHBOARD
+========================================== */
+
+.client-dashboard {
+    min-height: 100vh;
+    background: #f7f8fc;
+    color: #111827;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.client-navbar {
+    width: 100%;
+    height: 72px;
+    padding: 0 7%;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+
+/* LOGO */
+
+.client-logo {
+    color: #111827;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    margin-right: 45px;
+}
+
+.client-logo span {
+    color: #635bff;
+}
+
+
+/* NAVIGATION */
+
+.client-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.client-nav button {
+    border: none;
+    background: transparent;
+
+    color: #4b5563;
+
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.client-nav button:hover {
+    background: #f0efff;
+    color: #635bff;
+}
+
+
+/* USER */
+
+.client-user {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.client-user span {
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    max-width: 220px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* LOGOUT */
+
+.logout-button {
+    border: none;
+
+    background: #635bff;
+    color: #ffffff;
+
+    padding: 11px 20px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.logout-button:hover {
+    background: #5148e8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.client-dashboard-main {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 75px 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   INTRO
+========================================== */
+
+.dashboard-intro {
+    margin-bottom: 50px;
+}
+
+.dashboard-label {
+    color: #635bff;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin: 0 0 12px;
+}
+
+.dashboard-intro h1 {
+    color: #111827;
+
+    font-size: 46px;
+    line-height: 1.15;
+
+    margin: 0 0 15px;
+}
+
+.dashboard-intro > p:last-child {
+    color: #58708e;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   DASHBOARD CARDS
+========================================== */
+
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-bottom: 55px;
+}
+
+
+/* CARD */
+
+.dashboard-card {
+    background: #ffffff;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* CARD ICON */
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eeebff;
+
+    border-radius: 13px;
+
+    font-size: 23px;
+
+    margin-bottom: 22px;
+}
+
+
+/* CARD TITLE */
+
+.dashboard-card h2 {
+    color: #111827;
+
+    font-size: 22px;
+
+    margin: 0 0 12px;
+}
+
+
+/* CARD DESCRIPTION */
+
+.dashboard-card p {
+    color: #58708e;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    min-height: 45px;
+
+    margin: 0 0 25px;
+}
+
+
+/* CARD BUTTON */
+
+.dashboard-card button {
+    border: none;
+
+    background: #635bff;
+
+    color: #ffffff;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.dashboard-card button:hover {
+    background: #5148e8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   RECENT JOBS
+========================================== */
+
+.recent-jobs {
+    margin-top: 20px;
+}
+
+.recent-jobs-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.recent-jobs-header h2 {
+    color: #111827;
+
+    font-size: 25px;
+
+    margin: 0;
+}
+
+
+/* VIEW ALL */
+
+.recent-jobs-header button {
+    border: none;
+
+    background: transparent;
+
+    color: #635bff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   RECENT JOB LIST
+========================================== */
+
+.recent-job-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* RECENT JOB */
+
+.recent-job {
+    background: #ffffff;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 14px;
+
+    padding: 20px 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.03);
+}
+
+.recent-job > div {
+    min-width: 0;
+}
+
+.recent-job span {
+    display: inline-block;
+
+    color: #635bff;
+
+    background: #eeebff;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.recent-job h3 {
+    color: #111827;
+
+    font-size: 17px;
+
+    margin: 0 0 5px;
+}
+
+.recent-job p {
+    color: #8a99ad;
+
+    font-size: 13px;
+
+    margin: 0;
+}
+
+
+/* RECENT JOB BUTTON */
+
+.recent-job button {
+    flex-shrink: 0;
+
+    border: 1px solid #635bff;
+
+    background: #ffffff;
+
+    color: #635bff;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.recent-job button:hover {
+    background: #635bff;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   DASHBOARD MESSAGE
+========================================== */
+
+.dashboard-message {
+    background: #ffffff;
+
+    border: 1px solid #e1e5ec;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #58708e;
+}
+
+.dashboard-message h3 {
+    color: #111827;
+
+    margin: 0 0 8px;
+}
+
+.dashboard-message p {
+    margin: 0 0 20px;
+}
+
+.dashboard-message button {
+    border: none;
+
+    background: #635bff;
+
+    color: #ffffff;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.dashboard-message.error {
+    color: #dc2626;
+
+    background: #fffafa;
+
+    border-color: #fecaca;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 950px) {
+
+    .client-navbar {
+        height: auto;
+
+        padding: 18px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .client-logo {
+        margin-right: auto;
+    }
+
+    .client-nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .client-user {
+        margin-left: 0;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .client-navbar {
+        padding: 16px 20px;
+    }
+
+    .client-logo {
+        width: 100%;
+    }
+
+    .client-user {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .client-nav {
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .client-dashboard-main {
+        padding: 50px 20px;
+    }
+
+    .dashboard-intro h1 {
+        font-size: 36px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-job {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .recent-job button {
+        width: 100%;
+    }
+}
