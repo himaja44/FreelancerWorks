@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Applicants - FreelancerWorks</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/applicants.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="applicants-navbar">
+
+    <div class="applicants-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="applicants-nav">
+
+        <a href="client-dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="post-job.html">
+            Post a Job
+        </a>
+
+        <a href="my-jobs.html">
+            My Jobs
+        </a>
+
+    </nav>
+
+
+    <div class="applicants-user">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="applicants-page">
+
+
+    <section class="applicants-intro">
+
+        <p class="applicants-label">
+            CLIENT WORKSPACE
+        </p>
+
+        <h1>
+            Applicants
+        </h1>
+
+        <p id="jobTitle">
+             Applicants for this job
+        </p>
+
+    </section>
+
+
+
+    <section
+        id="applicantsContainer"
+        class="applicants-container"
+    >
+
+        <div class="loading-state">
+            Loading applicants...
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/applicants.js"></script>
+
+
+</body>
+
+</html>

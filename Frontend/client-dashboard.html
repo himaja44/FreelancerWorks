@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Client Dashboard - FreelancerWorks</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/client-dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="client-navbar">
+
+
+    <div class="client-logo">
+
+        Freelancer<span>Works</span>
+
+    </div>
+
+
+    <nav class="client-nav">
+
+        <a
+            href="client-dashboard.html"
+            class="active"
+        >
+            Dashboard
+        </a>
+
+        <a href="post-job.html">
+            Post a Job
+        </a>
+
+        <a href="my-jobs.html">
+            My Jobs
+        </a>
+
+    </nav>
+
+
+    <div class="client-user-area">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+
+</header>
+
+
+
+<main class="client-page">
+
+
+    <!-- =========================
+         WELCOME
+    ========================== -->
+
+    <section class="client-welcome">
+
+        <p class="client-label">
+            FREELANCER WORKS
+        </p>
+
+        <h1 id="welcomeMessage">
+            Welcome!
+        </h1>
+
+        <p>
+            Manage your projects,
+            jobs and applicants from one place.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         DASHBOARD CARDS
+    ========================== -->
+
+    <section class="client-cards">
+
+
+        <!-- POST JOB -->
+
+        <div class="client-card">
+
+            <div class="client-card-icon">
+                📝
+            </div>
+
+            <h2>
+                Post a Job
+            </h2>
+
+            <p>
+                Create a new freelance job
+                and find skilled professionals.
+            </p>
+
+            <a href="post-job.html">
+                Post Job →
+            </a>
+
+        </div>
+
+
+
+        <!-- MY JOBS -->
+
+        <div class="client-card">
+
+            <div class="client-card-icon">
+                💼
+            </div>
+
+            <h2>
+                My Jobs
+            </h2>
+
+            <p>
+                View and manage the jobs
+                you have posted.
+            </p>
+
+            <a href="my-jobs.html">
+                Manage Jobs →
+            </a>
+
+        </div>
+
+
+
+        <!-- APPLICANTS -->
+
+        <div class="client-card">
+
+            <div class="client-card-icon">
+                👥
+            </div>
+
+            <h2>
+                Applicants
+            </h2>
+
+            <p>
+                Review freelancers who
+                applied to your jobs.
+            </p>
+
+            <a href="my-jobs.html">
+                View Applicants →
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         ACCOUNT INFORMATION
+    ========================== -->
+
+    <section class="client-account">
+
+
+        <div class="client-account-header">
+
+            <div>
+
+                <h2>
+                    Account Information
+                </h2>
+
+                <p>
+                    Your client account details.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="client-account-row">
+
+            <span>
+                Name
+            </span>
+
+            <strong id="userName">
+                Loading...
+            </strong>
+
+        </div>
+
+
+        <div class="client-account-row">
+
+            <span>
+                Email
+            </span>
+
+            <strong id="userEmail">
+                Loading...
+            </strong>
+
+        </div>
+
+
+        <div class="client-account-row">
+
+            <span>
+                Phone
+            </span>
+
+            <strong id="userPhone">
+                Loading...
+            </strong>
+
+        </div>
+
+
+        <div class="client-account-row">
+
+            <span>
+                Account Type
+            </span>
+
+            <strong
+                id="userRole"
+                class="client-role"
+            >
+                Loading...
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/client-dashboard.js"></script>
+
+
+</body>
+
+</html>

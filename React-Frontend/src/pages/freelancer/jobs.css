@@ -1,0 +1,227 @@
+.jobs-page {
+
+    min-height: 100vh;
+
+    background: #f7f8fc;
+
+    padding: 80px 8%;
+
+}
+
+
+.jobs-header {
+
+    margin-bottom: 50px;
+
+}
+
+
+.jobs-label {
+
+    color: #635bff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.jobs-header h1 {
+
+    font-size: 58px;
+
+    color: #111827;
+
+    margin: 0 0 20px;
+
+}
+
+
+.jobs-description {
+
+    font-size: 20px;
+
+    color: #58708f;
+
+}
+
+
+.jobs-message {
+
+    text-align: center;
+
+    padding: 50px;
+
+    font-size: 20px;
+
+    color: #58708f;
+
+}
+
+
+.jobs-message.error {
+
+    color: #dc2626;
+
+}
+
+
+.jobs-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+
+.job-card {
+
+    background: white;
+
+    border: 1px solid #e1e4eb;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05);
+
+    overflow: hidden;
+
+}
+
+
+.job-card-content {
+
+    padding: 32px 38px;
+
+}
+
+
+.job-category {
+
+    color: #635bff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+}
+
+
+.job-card h2 {
+
+    font-size: 30px;
+
+    color: #111827;
+
+    margin: 0 0 12px;
+
+}
+
+
+.job-description {
+
+    color: #58708f;
+
+    font-size: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.job-skills {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.job-skills span {
+
+    background: #f0efff;
+
+    color: #5148e5;
+
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+}
+
+
+.job-card-footer {
+
+    border-top: 1px solid #e5e7eb;
+
+    padding: 22px 38px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.job-card-footer strong {
+
+    font-size: 22px;
+
+    color: #111827;
+
+}
+
+
+.job-card-footer p {
+
+    margin-top: 5px;
+
+    color: #58708f;
+
+}
+
+
+.view-job-button {
+
+    border: none;
+
+    background: #635bff;
+
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.view-job-button:hover {
+
+    background: #5148e5;
+
+}

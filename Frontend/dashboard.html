@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Freelancer Works</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-page">
+
+    <header class="dashboard-navbar">
+
+        <div class="dashboard-logo">
+            Freelancer<span>Works</span>
+        </div>
+
+        <nav class="dashboard-nav" id="dashboardNav">
+
+
+        <div class="dashboard-nav-right">
+
+            <span
+                class="dashboard-user"
+                id="navUser">
+                Loading...
+            </span>
+            <a href="saved-jobs.html">
+    Saved Jobs
+</a>
+
+            <button
+                class="logout-button"
+                id="logout">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard-container">
+
+        <section class="welcome-section">
+
+            <p class="welcome-label">
+                FREELANCER WORKS
+            </p>
+
+            <h1 id="welcome">
+                Welcome!
+            </h1>
+
+            <p>
+                Manage your freelance journey
+                from one place.
+            </p>
+
+        </section>
+
+
+        <section class="dashboard-cards">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Find Jobs
+                </h3>
+
+                <p>
+                    Discover freelance opportunities
+                    that match your skills.
+                </p>
+
+                <a href="jobs.html" class="dashboard-card-link">
+                    Browse Jobs →
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📋
+                </div>
+
+                <h3>
+                    My Applications
+                </h3>
+
+                <p>
+                    Track the jobs you have applied
+                    for.
+                </p>
+
+                <a href="applications.html" class="dashboard-card-link">
+                    View Applications →
+                </a>
+
+            </div>
+            
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    My Profile
+                </h3>
+
+                <p>
+                    Manage your skills, experience
+                    and professional profile.
+                </p>
+
+                <a href="profile.html" class="dashboard-card-link">
+                    View Profile →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="profile-card">
+
+            <h2>
+                Account Information
+            </h2>
+
+            <div class="profile-row">
+
+                <span class="profile-label">
+                    Name
+                </span>
+
+                <span
+                    class="profile-value"
+                    id="userName">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-row">
+
+                <span class="profile-label">
+                    Email
+                </span>
+
+                <span
+                    class="profile-value"
+                    id="userEmail">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-row">
+
+                <span class="profile-label">
+                    Account Type
+                </span>
+
+                <span
+                    class="role-badge"
+                    id="userRole">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-row">
+
+                <span class="profile-label">
+                    Phone
+                </span>
+
+                <span
+                    class="profile-value"
+                    id="userPhone">
+                    Loading...
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/notifications.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

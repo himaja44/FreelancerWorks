@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Apply for Job - FreelancerWorks</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/apply.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="apply-navbar">
+
+    <div class="apply-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="apply-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="jobs.html">
+            Find Jobs
+        </a>
+
+        <a href="applications.html">
+            My Applications
+        </a>
+
+        <a href="saved-jobs.html">
+            Saved Jobs
+        </a>
+
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </nav>
+
+
+    <div class="apply-user-section">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="apply-page">
+
+
+    <section class="apply-container">
+
+
+        <div class="apply-heading">
+
+            <p class="apply-label">
+                JOB APPLICATION
+            </p>
+
+            <h1>
+                Apply for this position
+            </h1>
+
+            <p
+                id="jobTitle"
+                class="job-title-loading"
+            >
+                Loading...
+            </p>
+
+        </div>
+
+
+
+        <!-- APPLICATION FORM -->
+
+        <form
+            id="applicationForm"
+            class="application-form"
+        >
+
+
+            <!-- FULL NAME -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <small
+                    id="nameError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <small
+                    id="emailError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    maxlength="10"
+                    required
+                >
+
+                <small
+                    id="phoneError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- EXPECTED SALARY -->
+
+            <div class="form-group">
+
+                <label for="expected_salary">
+                    Expected Salary
+                </label>
+
+                <input
+                    type="number"
+                    id="expected_salary"
+                    name="expected_salary"
+                    placeholder="Enter expected salary"
+                    min="1"
+                    required
+                >
+
+                <small
+                    id="salaryError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- COVER LETTER -->
+
+            <div class="form-group">
+
+                <label for="cover_letter">
+                    Cover Letter
+                </label>
+
+                <textarea
+                    id="cover_letter"
+                    name="cover_letter"
+                    rows="7"
+                    placeholder="Tell the client why you are suitable for this job..."
+                    required
+                ></textarea>
+
+                <small
+                    id="coverLetterError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- RESUME -->
+
+            <div class="form-group">
+
+                <label for="resume">
+                    Resume
+                </label>
+
+                <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf,.doc,.docx"
+                >
+
+                <small class="file-help">
+                    PDF, DOC or DOCX files only
+                </small>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+
+                <a
+                    href="jobs.html"
+                    class="cancel-button"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    id="submitApplication"
+                    class="submit-button"
+                >
+                    Submit Application
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/apply.js"></script>
+
+
+</body>
+
+</html>

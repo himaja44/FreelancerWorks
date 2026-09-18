@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Find Jobs - Freelancer Works</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/jobs.css"
+    >
+
+</head>
+
+<body>
+
+<header class="jobs-navbar">
+
+    <div class="dashboard-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="jobs-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a
+            href="jobs.html"
+            class="active"
+        >
+            Find Jobs
+        </a>
+
+        <a href="applications.html">
+            My Applications
+        </a>
+        <a href="saved-jobs.html">
+    Saved Jobs
+</a>
+
+        <a href="profile.html">
+            My Profile
+        </a>
+
+    </nav>
+
+
+    <div class="jobs-nav-right">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="jobs-page">
+
+    <section class="jobs-header">
+
+        <p class="jobs-label">
+            FIND YOUR NEXT OPPORTUNITY
+        </p>
+
+        <h1>
+            Find Jobs
+        </h1>
+
+        <p>
+            Discover freelance opportunities
+            that match your skills and experience.
+        </p>
+
+    </section>
+
+
+    <section class="jobs-search">
+
+        <div class="search-wrapper">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search jobs, skills or technologies..."
+            >
+
+            <button id="searchButton">
+                Search
+            </button>
+
+        </div>
+
+
+        <select id="categoryFilter">
+
+            <option value="">
+                All Categories
+            </option>
+
+            <option value="Web Development">
+                Web Development
+            </option>
+
+            <option value="Backend Development">
+                Backend Development
+            </option>
+
+            <option value="Full Stack Development">
+                Full Stack Development
+            </option>
+
+            <option value="UI/UX Design">
+                UI/UX Design
+            </option>
+
+            <option value="Data & Analytics">
+                Data & Analytics
+            </option>
+
+            <option value="AI & Machine Learning">
+                AI & Machine Learning
+            </option>
+
+            <option value="Mobile Development">
+                Mobile Development
+            </option>
+
+        </select>
+
+    </section>
+   <!---<select id="JobTypeFilter">
+
+            <option value="">
+                All Types
+            </option>
+
+            <option value="Remote">
+                Remote
+            </option>
+
+            <option value="On-Site">
+                On-Site
+            </option>
+
+        </select>
+
+    </section>-->
+
+
+    <section
+        class="jobs-container"
+        id="jobsContainer"
+    >
+
+        <p id="jobsMessage">
+            Loading jobs...
+        </p>
+
+    </section>
+
+</main>
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/jobs.js"></script>
+
+</body>
+
+</html>

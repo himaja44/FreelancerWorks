@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Post a Job - FreelancerWorks</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/post-job.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="post-navbar">
+
+    <div class="post-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="post-nav">
+
+        <a href="client-dashboard.html">
+            Dashboard
+        </a>
+
+        <a
+            href="post-job.html"
+            class="active"
+        >
+            Post a Job
+        </a>
+
+        <a href="my-jobs.html">
+            My Jobs
+        </a>
+
+    </nav>
+
+
+    <div class="post-user-area">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="post-page">
+
+
+    <section class="post-container">
+
+
+        <!-- HEADING -->
+
+        <div class="post-heading">
+
+            <p class="post-label">
+                CLIENT WORKSPACE
+            </p>
+
+            <h1>
+                Post a Job
+            </h1>
+
+            <p>
+                Tell freelancers what you need
+                and find the right person for your project.
+            </p>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form
+            id="postJobForm"
+            class="post-job-form"
+        >
+
+
+            <!-- JOB TITLE -->
+
+            <div class="form-group">
+
+                <label for="title">
+                    Job Title
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="e.g. Frontend Developer"
+                    maxlength="150"
+                    required
+                >
+
+                <small
+                    id="titleError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label for="description">
+                    Job Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    placeholder="Describe what you need from the freelancer..."
+                    required
+                ></textarea>
+
+                <small
+                    id="descriptionError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label for="category">
+                    Category
+                </label>
+
+                <select
+                    id="category"
+                    name="category"
+                    required
+                >
+
+                    <option value="">
+                        Select a category
+                    </option>
+
+                    <option value="Web Development">
+                        Web Development
+                    </option>
+
+                    <option value="Mobile Development">
+                        Mobile Development
+                    </option>
+
+                    <option value="Backend Development">
+                        Backend Development
+                    </option>
+
+                    <option value="UI/UX Design">
+                        UI/UX Design
+                    </option>
+
+                    <option value="Graphic Design">
+                        Graphic Design
+                    </option>
+
+                    <option value="Data Science">
+                        Data Science
+                    </option>
+
+                    <option value="AI / Machine Learning">
+                        AI / Machine Learning
+                    </option>
+
+                    <option value="Content Writing">
+                        Content Writing
+                    </option>
+
+                    <option value="Digital Marketing">
+                        Digital Marketing
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+                <small
+                    id="categoryError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- SKILLS -->
+
+            <div class="form-group">
+
+                <label for="skills">
+                    Required Skills
+                </label>
+
+                <input
+                    type="text"
+                    id="skills"
+                    name="skills"
+                    placeholder="e.g. HTML, CSS, JavaScript, React"
+                    required
+                >
+
+                <small class="field-help">
+                    Separate multiple skills with commas.
+                </small>
+
+                <small
+                    id="skillsError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- REQUIREMENTS -->
+
+            <div class="form-group">
+
+                <label for="requirements">
+                    Requirements
+                </label>
+
+                <textarea
+                    id="requirements"
+                    name="requirements"
+                    rows="5"
+                    placeholder="Mention the qualifications and experience required..."
+                    required
+                ></textarea>
+
+                <small
+                    id="requirementsError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- RESPONSIBILITIES -->
+
+            <div class="form-group">
+
+                <label for="responsibilities">
+                    Responsibilities
+                </label>
+
+                <textarea
+                    id="responsibilities"
+                    name="responsibilities"
+                    rows="5"
+                    placeholder="Mention what the freelancer will be responsible for..."
+                    required
+                ></textarea>
+
+                <small
+                    id="responsibilitiesError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- BUDGET -->
+
+            <div class="budget-row">
+
+
+                <div class="form-group">
+
+                    <label for="budget_min">
+                        Minimum Budget
+                    </label>
+
+                    <input
+                        type="number"
+                        id="budget_min"
+                        name="budget_min"
+                        placeholder="30000"
+                        min="1"
+                        required
+                    >
+
+                    <small
+                        id="budgetMinError"
+                        class="error-message"
+                    ></small>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="budget_max">
+                        Maximum Budget
+                    </label>
+
+                    <input
+                        type="number"
+                        id="budget_max"
+                        name="budget_max"
+                        placeholder="50000"
+                        min="1"
+                        required
+                    >
+
+                    <small
+                        id="budgetMaxError"
+                        class="error-message"
+                    ></small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- JOB TYPE -->
+
+            <div class="form-group">
+
+                <label for="job_type">
+                    Job Type
+                </label>
+
+                <select
+                    id="job_type"
+                    name="job_type"
+                    required
+                >
+
+                    <option value="">
+                        Select job type
+                    </option>
+
+                    <option value="Remote">
+                        Remote
+                    </option>
+
+                    <option value="On-site">
+                        On-site
+                    </option>
+
+                    <option value="Hybrid">
+                        Hybrid
+                    </option>
+
+                </select>
+
+                <small
+                    id="jobTypeError"
+                    class="error-message"
+                ></small>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="post-form-actions">
+
+                <a
+                    href="client-dashboard.html"
+                    class="cancel-button"
+                >
+                    Cancel
+                </a>
+
+
+                <button
+                    type="submit"
+                    id="postJobButton"
+                    class="post-job-button"
+                >
+                    Post Job
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/post-job.js"></script>
+
+
+</body>
+
+</html>

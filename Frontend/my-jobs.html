@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Jobs - FreelancerWorks</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/my-jobs.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="my-jobs-navbar">
+
+
+    <div class="my-jobs-logo">
+        Freelancer<span>Works</span>
+    </div>
+
+
+    <nav class="my-jobs-nav">
+
+        <a href="client-dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="post-job.html">
+            Post a Job
+        </a>
+
+        <a
+            href="my-jobs.html"
+            class="active"
+        >
+            My Jobs
+        </a>
+
+    </nav>
+
+
+    <div class="my-jobs-user">
+
+        <span id="navUser">
+            Loading...
+        </span>
+
+        <button
+            id="logout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+
+</header>
+
+
+
+<main class="my-jobs-page">
+
+
+    <section class="my-jobs-intro">
+
+        <p class="my-jobs-label">
+            CLIENT WORKSPACE
+        </p>
+
+        <h1>
+            My Jobs
+        </h1>
+
+        <p>
+            View and manage the jobs you have posted.
+        </p>
+
+    </section>
+
+
+
+    <section
+        id="jobsContainer"
+        class="jobs-container"
+    >
+
+        <div class="loading-state">
+            Loading your jobs...
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="js/notifications.js"></script>
+
+<script src="js/my-jobs.js"></script>
+
+
+</body>
+
+</html>
