@@ -20,23 +20,14 @@ const profileRoutes =
     require("./routes/profileRoutes");
 
 
-const app = express();
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://himaja44.github.io"
-];
+const cors = require("cors");
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: true,
   credentials: true
 }));
+
+app.use(express.json());
 
 
 
