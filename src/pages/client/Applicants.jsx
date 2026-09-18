@@ -108,7 +108,7 @@ function Applicants() {
 
                 const response =
                     await fetch(
-                        `http://localhost:5000/api/applications/job/${jobId}`,
+                        `https://freelancerworks-1.onrender.com/api/applications/job/${jobId}`,
                         {
                             method: "GET",
 
@@ -238,7 +238,7 @@ function Applicants() {
 
             const response =
                 await fetch(
-                    `http://localhost:5000/api/applications/${applicationId}/status`,
+                    `https://freelancerworks-1.onrender.com/api/applications/${applicationId}/status`,
                     {
                         method: "PUT",
 
@@ -730,7 +730,7 @@ function Applicants() {
                                                         "http"
                                                     )
                                                         ? applicant.resume
-                                                        : `http://localhost:5000${applicant.resume}`
+                                                        : `https://freelancerworks-1.onrender.com${applicant.resume}`
                                                 }
                                                 target="_blank"
                                                 rel="noopener noreferrer"

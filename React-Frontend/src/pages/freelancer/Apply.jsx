@@ -86,7 +86,7 @@ function Apply() {
 
                 const response =
                     await fetch(
-                        `http://localhost:5000/api/jobs/${id}`
+                        `https://freelancerworks-1.onrender.com/api/jobs/${id}`
                     );
 
 
@@ -381,7 +381,7 @@ function Apply() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/applications",
+                    "https://freelancerworks-1.onrender.com/api/applications",
                     {
                         method: "POST",
 

@@ -116,7 +116,7 @@ async function loadApplicants() {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/applications/job/${jobId}`,
+                `https://freelancerworks-1.onrender.com/api/applications/job/${jobId}`,
                 {
 
                     headers: {
@@ -454,7 +454,7 @@ async function updateApplicationStatus(
 
         const response =
             await fetch(
-                `http://localhost:5000/api/applications/${applicationId}/status`,
+                `https://freelancerworks-1.onrender.com/api/applications/${applicationId}/status`,
                 {
 
                     method: "PUT",

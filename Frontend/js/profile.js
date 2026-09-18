@@ -73,7 +73,7 @@ async function loadProfile() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/profile",
+                "https://freelancerworks-1.onrender.com/api/profile",
                 {
                     method: "GET",
 
@@ -355,7 +355,7 @@ profileForm.addEventListener(
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/profile",
+                    "https://freelancerworks-1.onrender.com/api/profile",
                     {
                         method: "PUT",
 

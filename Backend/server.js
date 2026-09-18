@@ -22,8 +22,6 @@ const profileRoutes =
 
 const app = express();
 
-const PORT = 5000;
-
 
 app.use(cors());
 
@@ -76,10 +74,8 @@ app.get("/", function (req, res) {
 });
 
 
-app.listen(PORT, function () {
+const PORT = process.env.PORT || 5000;
 
-    console.log(
-        `Freelancer Works backend running on http://localhost:${PORT}`
-    );
-
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

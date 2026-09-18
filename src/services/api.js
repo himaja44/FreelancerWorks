@@ -1,7 +1,7 @@
 export async function getJobs() {
 
     const response = await fetch(
-        "http://localhost:5000/api/jobs"
+        "https://freelancerworks-1.onrender.com/api/jobs"
     );
 
     const data = await response.json();
