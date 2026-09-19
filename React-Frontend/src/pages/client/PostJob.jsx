@@ -284,7 +284,7 @@ function PostJob() {
 
             const response =
                 await fetch(
-                    "https://freelancerworks-1.onrender.com/api/jobs",
+                    "https://freelancerworks-backend.onrender.com/api/jobs",
                     {
                         method: "POST",
 
@@ -918,3 +918,4 @@ function PostJob() {
 
 
 export default PostJob;
+

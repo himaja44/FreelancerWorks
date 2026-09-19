@@ -1,7 +1,7 @@
 export async function getJobs() {
 
     const response = await fetch(
-        "https://freelancerworks-1.onrender.com/api/jobs"
+        "https://freelancerworks-backend.onrender.com/api/jobs"
     );
 
     const data = await response.json();
@@ -18,3 +18,4 @@ export async function getJobs() {
     return data.jobs || [];
 
 }
+

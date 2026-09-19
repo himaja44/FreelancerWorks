@@ -47,7 +47,7 @@ function FindJobs() {
 
 
                 const response = await fetch(
-"https://freelancerworks-1.onrender.com/api/jobs"
+"https://freelancerworks-backend.onrender.com/api/jobs"
                 );
 
 
@@ -130,7 +130,7 @@ function FindJobs() {
 
                 const response =
                     await fetch(
-                       "https://freelancerworks-1.onrender.com/api/saved-jobs",
+                       "https://freelancerworks-backend.onrender.com/api/saved-jobs",
                        {
 
                             headers: {
@@ -219,7 +219,7 @@ function FindJobs() {
 
                const response =
     await fetch(
-        `https://freelancerworks-1.onrender.com/api/saved-jobs/${jobId}`,
+        `https://freelancerworks-backend.onrender.com/api/saved-jobs/${jobId}`,
         {
             method: "DELETE",
 
@@ -262,7 +262,7 @@ function FindJobs() {
 
                 const response =
     await fetch(
-        "https://freelancerworks-1.onrender.com/api/saved-jobs",
+        "https://freelancerworks-backend.onrender.com/api/saved-jobs",
         {
             method: "POST",
 
@@ -1087,3 +1087,4 @@ function FindJobs() {
 
 
 export default FindJobs;
+

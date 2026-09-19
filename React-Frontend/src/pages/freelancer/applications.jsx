@@ -47,7 +47,7 @@ function Applications() {
 
             const response =
                 await fetch(
-                    "https://freelancerworks-1.onrender.com/api/applications/my",
+                    "https://freelancerworks-backend.onrender.com/api/applications/my",
                     {
                         headers: {
                             Authorization:
@@ -378,3 +378,4 @@ function Applications() {
 
 
 export default Applications;
+
