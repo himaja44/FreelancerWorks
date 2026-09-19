@@ -45,7 +45,7 @@ function SavedJobs() {
 
                 const response =
                     await fetch(
-                        "https://freelancerworks-backend.onrender.com/api/saved-jobs",
+                        "https://freelancerworks-1.onrender.com/api/saved-jobs",
                         {
                             headers: {
                                 "Authorization":
@@ -125,7 +125,7 @@ function SavedJobs() {
 
            const response =
     await fetch(
-        `https://freelancerworks-backend.onrender.com/api/saved-jobs/${jobId}`,
+        `https://freelancerworks-1.onrender.com/api/saved-jobs/${jobId}`,
         {
             method: "DELETE",
 

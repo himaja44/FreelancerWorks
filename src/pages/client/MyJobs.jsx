@@ -87,7 +87,7 @@ function MyJobs() {
 
                 const response =
                     await fetch(
-                        "https://freelancerworks-backend.onrender.com/api/jobs/my-jobs",
+                        "https://freelancerworks-1.onrender.com/api/jobs/my-jobs",
                         {
                             method: "GET",
 
@@ -234,7 +234,7 @@ function MyJobs() {
 
             const response =
                 await fetch(
-                    `https://freelancerworks-backend.onrender.com/api/jobs/${jobId}`,
+                    `https://freelancerworks-1.onrender.com/api/jobs/${jobId}`,
                     {
                         method: "DELETE",
 

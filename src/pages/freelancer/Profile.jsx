@@ -43,7 +43,7 @@ function Profile() {
             setError("");
 
             const response = await fetch(
-                "https://freelancerworks-backend.onrender.com/api/profile",
+                "https://freelancerworks-1.onrender.com/api/profile",
                 {
                     method: "GET",
                     headers: {
@@ -153,7 +153,7 @@ function Profile() {
         try {
 
             const response = await fetch(
-                "https://freelancerworks-backend.onrender.com/api/profile",
+                "https://freelancerworks-1.onrender.com/api/profile",
                 {
                     method: "PUT",
 
