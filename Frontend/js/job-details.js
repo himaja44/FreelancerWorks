@@ -58,7 +58,7 @@ async function loadJob() {
     try {
 
         const response = await fetch(
-            `https://freelancerworks-1.onrender.com/api/jobs/${jobId}`
+            `https://freelancerworks-backend.onrender.com/api/jobs/${jobId}`
         );
 
         const data =

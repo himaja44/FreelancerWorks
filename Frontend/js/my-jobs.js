@@ -85,7 +85,7 @@ async function loadMyJobs() {
 
         const response =
             await fetch(
-                "https://freelancerworks-1.onrender.com/api/jobs/my",
+                "https://freelancerworks-backend.onrender.com/api/jobs/my",
                 {
 
                     method: "GET",
@@ -608,7 +608,7 @@ async function deleteJob(jobId) {
 
         const response =
             await fetch(
-                `https://freelancerworks-1.onrender.com/api/jobs/${jobId}`,
+                `https://freelancerworks-backend.onrender.com/api/jobs/${jobId}`,
                 {
 
                     method: "DELETE",

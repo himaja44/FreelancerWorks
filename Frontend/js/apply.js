@@ -94,7 +94,7 @@ async function loadJobDetails() {
 
         const response =
             await fetch(
-                `https://freelancerworks-1.onrender.com/api/jobs/${jobId}`
+                `https://freelancerworks-backend.onrender.com/api/jobs/${jobId}`
             );
 
 
@@ -362,7 +362,7 @@ applicationForm.addEventListener(
 
             const response =
                 await fetch(
-                    "https://freelancerworks-1.onrender.com/api/applications",
+                    "https://freelancerworks-backend.onrender.com/api/applications",
                     {
 
                         method: "POST",

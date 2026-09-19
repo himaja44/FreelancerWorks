@@ -24,7 +24,7 @@ function JobDetails() {
             setError("");
 
             const response = await fetch(
-    `https://freelancerworks-1.onrender.com/api/jobs/${id}`
+    `https://freelancerworks-backend.onrender.com/api/jobs/${id}`
 );
 
             const data = await response.json();

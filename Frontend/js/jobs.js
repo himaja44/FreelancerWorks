@@ -112,7 +112,7 @@ async function loadSavedJobs() {
 
         const response =
             await fetch(
-                "https://freelancerworks-1.onrender.com/api/saved-jobs",
+                "https://freelancerworks-backend.onrender.com/api/saved-jobs",
                 {
                     method: "GET",
 
@@ -183,7 +183,7 @@ async function loadJobs() {
 
         const response =
             await fetch(
-                "https://freelancerworks-1.onrender.com/api/jobs"
+                "https://freelancerworks-backend.onrender.com/api/jobs"
             );
 
 
@@ -537,7 +537,7 @@ function addJobEvents() {
 
                             const response =
                                 await fetch(
-                                    `https://freelancerworks-1.onrender.com/api/saved-jobs/${jobId}`,
+                                    `https://freelancerworks-backend.onrender.com/api/saved-jobs/${jobId}`,
                                     {
                                         method: "DELETE",
 
@@ -592,7 +592,7 @@ function addJobEvents() {
 
                             const response =
                                 await fetch(
-                                    "https://freelancerworks-1.onrender.com/api/saved-jobs",
+                                    "https://freelancerworks-backend.onrender.com/api/saved-jobs",
                                     {
                                         method: "POST",
 

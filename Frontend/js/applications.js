@@ -65,7 +65,7 @@ async function loadApplications() {
 
         const response =
             await fetch(
-                "https://freelancerworks-1.onrender.com/api/applications/my",
+                "https://freelancerworks-backend.onrender.com/api/applications/my",
                 {
                     method: "GET",
 
