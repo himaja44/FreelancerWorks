@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import "../../styles/applicants.css";
-import "../../styles/my-jobs.css";
+
 
 function Applicants() {
 
@@ -108,7 +108,7 @@ function Applicants() {
 
                 const response =
                     await fetch(
-                        `https://freelancerworks-backend.onrender.com/api/applications/job/${jobId}`,
+                        `https://freelancerworks-1.onrender.com/api/applications/job/${jobId}`,
                         {
                             method: "GET",
 
@@ -238,7 +238,7 @@ function Applicants() {
 
             const response =
                 await fetch(
-                    `https://freelancerworks-backend.onrender.com/api/applications/${applicationId}/status`,
+                    `https://freelancerworks-1.onrender.com/api/applications/${applicationId}/status`,
                     {
                         method: "PUT",
 
@@ -730,7 +730,7 @@ function Applicants() {
                                                         "http"
                                                     )
                                                         ? applicant.resume
-                                                        : `https://freelancerworks-backend.onrender.com${applicant.resume}`
+                                                        : `https://freelancerworks-1.onrender.com${applicant.resume}`
                                                 }
                                                 target="_blank"
                                                 rel="noopener noreferrer"

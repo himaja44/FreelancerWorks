@@ -2,133 +2,177 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
+
 import "./Profile.css";
+
 
 function Profile() {
 
     const navigate = useNavigate();
 
-    const token = localStorage.getItem("token");
+    const token =
+        localStorage.getItem("token");
 
-    const [profile, setProfile] = useState(null);
 
-    const [loading, setLoading] = useState(true);
+    const [profile, setProfile] =
+        useState(null);
 
-    const [editing, setEditing] = useState(false);
+    const [loading, setLoading] =
+        useState(true);
 
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [professionalTitle, setProfessionalTitle] = useState("");
-    const [bio, setBio] = useState("");
-    const [skills, setSkills] = useState("");
+    const [editing, setEditing] =
+        useState(false);
 
-    const [message, setMessage] = useState("");
-    const [error, setError] = useState("");
+
+    const [name, setName] =
+        useState("");
+
+    const [phone, setPhone] =
+        useState("");
+
+    const [professionalTitle, setProfessionalTitle] =
+        useState("");
+
+    const [bio, setBio] =
+        useState("");
+
+    const [skills, setSkills] =
+        useState("");
+
+
+    const [message, setMessage] =
+        useState("");
+
+    const [error, setError] =
+        useState("");
 
 
     // ==========================================
     // LOAD PROFILE
     // ==========================================
 
-    async function loadProfile() {
+    
 
-        if (!token) {
-            navigate("/login");
-            return;
-        }
 
-        try {
+        
 
-            setLoading(true);
-            setError("");
 
-            const response = await fetch(
-                "https://freelancerworks-backend.onrender.com/api/profile",
+            
+        async function loadProfile() {
+
+    if (!token) {
+
+        navigate("/login");
+
+        return;
+
+    }
+
+
+    try {
+
+        setLoading(true);
+
+        setError("");
+
+
+        const response =
+            await fetch(
+                "https://freelancerworks-1.onrender.com/api/profile",
                 {
                     method: "GET",
+
                     headers: {
-                        "Authorization": `Bearer ${token}`
+                        "Authorization":
+                            `Bearer ${token}`
                     }
                 }
             );
 
-            const data = await response.json();
 
-            console.log("PROFILE RESPONSE:", data);
+        const data =
+            await response.json();
 
-            if (
-                response.status === 401 ||
-                response.status === 403
-            ) {
 
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
+        console.log(
+            "PROFILE RESPONSE:",
+            data
+        );
 
-                navigate("/login");
 
-                return;
-            }
+        if (
+            response.status === 401 ||
+            response.status === 403
+        ) {
 
-            if (!response.ok) {
+            localStorage.removeItem("token");
 
-                throw new Error(
-                    data.message ||
-                    "Unable to load profile."
-                );
-            }
+            localStorage.removeItem("user");
 
-            setProfile(data.user);
+            navigate("/login");
 
-            setName(data.user.name || "");
-
-            setPhone(
-                data.user.phone_number || ""
-            );
-
-            setProfessionalTitle(
-                data.user.professional_title || ""
-            );
-
-            setBio(
-                data.user.bio || ""
-            );
-
-            setSkills(
-                data.user.skills || ""
-            );
+            return;
 
         }
-        catch (error) {
 
-            console.log(
-                "Profile error:",
-                error
-            );
 
-            setError(
-                error.message ||
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
                 "Unable to load profile."
             );
 
         }
-        finally {
 
-            setLoading(false);
 
-        }
+        setProfile(data.user);
+
+
+        setName(
+            data.user.name || ""
+        );
+
+        setPhone(
+            data.user.phone_number || ""
+        );
+
+        setProfessionalTitle(
+            data.user.professional_title || ""
+        );
+
+        setBio(
+            data.user.bio || ""
+        );
+
+        setSkills(
+            data.user.skills || ""
+        );
+
     }
 
+    catch (error) {
 
-    // ==========================================
-    // CALL LOAD PROFILE
-    // ==========================================
+        console.log(
+            "Profile error:",
+            error
+        );
 
-    useEffect(() => {
 
-        loadProfile();
+        setError(
+            error.message ||
+            "Unable to load profile."
+        );
 
-    }, []);
+    }
 
+    finally {
+
+        setLoading(false);
+
+    }
+
+}
 
     // ==========================================
     // SAVE PROFILE
@@ -138,8 +182,10 @@ function Profile() {
 
         event.preventDefault();
 
+
         setMessage("");
         setError("");
+
 
         if (!name.trim()) {
 
@@ -148,56 +194,54 @@ function Profile() {
             );
 
             return;
+
         }
+
 
         try {
 
-            const response = await fetch(
-                "https://freelancerworks-backend.onrender.com/api/profile",
-                {
-                    method: "PUT",
+            const response =
+                await fetch(
+                   "https://freelancerworks-1.onrender.com/api/profile",
+                   {
+                        method: "PUT",
 
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    },
+                        headers: {
 
-                    body: JSON.stringify({
+                            "Content-Type":
+                                "application/json",
 
-                        name: name.trim(),
+                            Authorization:
+                                `Bearer ${token}`
 
-                        phone_number: phone,
+                        },
 
-                        professional_title:
-                            professionalTitle.trim(),
+                        body: JSON.stringify({
 
-                        bio: bio.trim(),
+                            name:
+                                name.trim(),
 
-                        skills: skills.trim()
+                            phone_number:
+                                phone,
 
-                    })
-                }
-            );
+                            professional_title:
+                                professionalTitle.trim(),
 
-            const data = await response.json();
+                            bio:
+                                bio.trim(),
 
-            console.log(
-                "UPDATE PROFILE RESPONSE:",
-                data
-            );
+                            skills:
+                                skills.trim()
 
-            if (
-                response.status === 401 ||
-                response.status === 403
-            ) {
+                        })
 
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
+                    }
+                );
 
-                navigate("/login");
 
-                return;
-            }
+            const data =
+                await response.json();
+
 
             if (!response.ok) {
 
@@ -205,9 +249,12 @@ function Profile() {
                     data.message ||
                     "Unable to update profile."
                 );
+
             }
 
+
             setProfile(data.user);
+
 
             setName(
                 data.user.name || ""
@@ -229,13 +276,16 @@ function Profile() {
                 data.user.skills || ""
             );
 
+
             setEditing(false);
+
 
             setMessage(
                 "Profile updated successfully."
             );
 
         }
+
         catch (error) {
 
             console.log(
@@ -247,7 +297,9 @@ function Profile() {
                 error.message ||
                 "Unable to update profile."
             );
+
         }
+
     }
 
 
@@ -260,27 +312,27 @@ function Profile() {
         setEditing(false);
 
         setName(
-            profile?.name || ""
+            profile.name || ""
         );
 
         setPhone(
-            profile?.phone_number || ""
+            profile.phone_number || ""
         );
 
         setProfessionalTitle(
-            profile?.professional_title || ""
+            profile.professional_title || ""
         );
 
         setBio(
-            profile?.bio || ""
+            profile.bio || ""
         );
 
         setSkills(
-            profile?.skills || ""
+            profile.skills || ""
         );
 
         setError("");
-        setMessage("");
+
     }
 
 
@@ -291,7 +343,9 @@ function Profile() {
     if (loading) {
 
         return (
+
             <>
+
                 <Navbar />
 
                 <main className="profile-page">
@@ -303,8 +357,11 @@ function Profile() {
                     </div>
 
                 </main>
+
             </>
+
         );
+
     }
 
 
@@ -313,10 +370,14 @@ function Profile() {
     // ==========================================
 
     return (
+
         <>
+
             <Navbar />
 
+
             <main className="profile-page">
+
 
                 {/* HEADER */}
 
@@ -326,9 +387,11 @@ function Profile() {
                         FREELANCER WORKSPACE
                     </p>
 
+
                     <h1>
                         My Profile
                     </h1>
+
 
                     <p>
                         Manage your personal
@@ -369,6 +432,7 @@ function Profile() {
 
                     <section className="profile-card">
 
+
                         {/* PROFILE SUMMARY */}
 
                         <div className="profile-summary">
@@ -382,11 +446,13 @@ function Profile() {
 
                             </div>
 
+
                             <div>
 
                                 <h2>
                                     {profile.name}
                                 </h2>
+
 
                                 <p>
                                     {profile.role}
@@ -410,7 +476,9 @@ function Profile() {
                                     Personal Information
                                 </h3>
 
+
                                 <div className="profile-info">
+
 
                                     <div className="profile-info-item">
 
@@ -471,13 +539,12 @@ function Profile() {
                                 {/* PROFESSIONAL INFORMATION */}
 
                                 <h3 className="profile-section-title professional-title">
-
                                     Professional Information
-
                                 </h3>
 
 
                                 <div className="professional-info">
+
 
                                     <div className="professional-info-item">
 
@@ -526,8 +593,6 @@ function Profile() {
                                 </div>
 
 
-                                {/* EDIT BUTTON */}
-
                                 <button
                                     className="edit-profile-button"
                                     onClick={() =>
@@ -542,13 +607,14 @@ function Profile() {
                         ) : (
 
                             /* ==================================
-                               EDIT PROFILE FORM
+                               EDIT FORM
                             ================================== */
 
                             <form
                                 className="profile-form"
                                 onSubmit={handleSave}
                             >
+
 
                                 {/* NAME */}
 
@@ -581,7 +647,7 @@ function Profile() {
 
                                     <input
                                         type="email"
-                                        value={profile.email || ""}
+                                        value={profile.email}
                                         disabled
                                     />
 
@@ -720,8 +786,12 @@ function Profile() {
                 )}
 
             </main>
+
         </>
+
     );
+
 }
+
 
 export default Profile;

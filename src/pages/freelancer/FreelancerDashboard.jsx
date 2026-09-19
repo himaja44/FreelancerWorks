@@ -3,372 +3,204 @@ import { useNavigate } from "react-router-dom";
 
 import "../../styles/freelancer-dashboard.css";
 
-
 function FreelancerDashboard() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
+  // ==========================================
+  // CHECK LOGIN
+  // ==========================================
 
-    const [user, setUser] = useState(null);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
 
+    const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
 
-    // ==========================================
-    // CHECK LOGIN
-    // ==========================================
+    if (!token) {
+      navigate("/login");
 
-    useEffect(() => {
-
-        const token =
-            localStorage.getItem("token");
-
-
-        const storedUser =
-            JSON.parse(
-                localStorage.getItem("user") || "{}"
-            );
-
-
-        if (!token) {
-
-            navigate("/login");
-
-            return;
-
-        }
-
-
-        // Check freelancer role
-
-        if (
-            storedUser.role &&
-            storedUser.role.toLowerCase() !==
-                "freelancer"
-        ) {
-
-            navigate("/client-dashboard");
-
-            return;
-
-        }
-
-
-        setUser(storedUser);
-
-    }, [navigate]);
-
-
-    // ==========================================
-    // LOGOUT
-    // ==========================================
-
-    function handleLogout() {
-
-        localStorage.removeItem("token");
-
-        localStorage.removeItem("user");
-
-        navigate("/login");
-
+      return;
     }
 
+    // Check freelancer role
 
-    // ==========================================
-    // PAGE
-    // ==========================================
+    if (storedUser.role && storedUser.role.toLowerCase() !== "freelancer") {
+      navigate("/client-dashboard");
 
-    return (
+      return;
+    }
 
-        <div className="freelancer-dashboard">
+    setUser(storedUser);
+  }, [navigate]);
 
+  // ==========================================
+  // LOGOUT
+  // ==========================================
 
-            {/* =====================================
+  function handleLogout() {
+    localStorage.removeItem("token");
+
+    localStorage.removeItem("user");
+
+    navigate("/login");
+  }
+
+  // ==========================================
+  // PAGE
+  // ==========================================
+
+  return (
+    <div className="freelancer-dashboard">
+      {/* =====================================
                 NAVBAR
             ===================================== */}
 
-            <header className="freelancer-navbar">
+      <header className="freelancer-navbar">
+        <div
+          className="freelancer-logo"
+          onClick={() => navigate("/freelancer-dashboard")}
+        >
+          Freelancer
+          <span>Works</span>
+        </div>
 
+        <nav className="freelancer-nav">
+          <button
+            className="active"
+            onClick={() => navigate("/freelancer-dashboard")}
+          >
+            Dashboard
+          </button>
 
-                <div
-                    className="freelancer-logo"
-                    onClick={() =>
-                        navigate(
-                            "/freelancer-dashboard"
-                        )
-                    }
-                >
+          <button onClick={() => navigate("/jobs")}>Find Jobs</button>
 
-                    Freelancer
-                    <span>Works</span>
+          <button onClick={() => navigate("/applications")}>
+            My Applications
+          </button>
+        </nav>
 
-                </div>
+        <div className="freelancer-user">
+          <span>{user?.email || "User"}</span>
 
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </header>
 
-                <nav className="freelancer-nav">
-
-                    <button
-                        className="active"
-                        onClick={() =>
-                            navigate(
-                                "/freelancer-dashboard"
-                            )
-                        }
-                    >
-                        Dashboard
-                    </button>
-
-
-                    <button
-                        onClick={() =>
-                            navigate("/jobs")
-                        }
-                    >
-                        Find Jobs
-                    </button>
-
-
-                    <button
-                        onClick={() =>
-                            navigate(
-                                "/applications"
-                            )
-                        }
-                    >
-                        My Applications
-                    </button>
-
-                </nav>
-
-
-                <div className="freelancer-user">
-
-                    <span>
-                        {user?.email || "User"}
-                    </span>
-
-
-                    <button
-                        onClick={handleLogout}
-                    >
-                        Logout
-                    </button>
-
-                </div>
-
-            </header>
-
-
-            {/* =====================================
+      {/* =====================================
                 MAIN
             ===================================== */}
 
-            <main className="freelancer-dashboard-main">
-
-
-                {/* =================================
-                    WELCOME
+      <main className="freelancer-dashboard-main">
+        {/* =================================
+                    INTRO
                 ================================= */}
 
-                <section className="freelancer-welcome">
+        <section className="freelancer-welcome">
+          <p>FREELANCER WORKSPACE</p>
 
-                    <p>
-                        FREELANCER WORKSPACE
-                    </p>
+          <h1>Welcome, {user?.name || "Freelancer"}!</h1>
 
+          <span>
+            Find opportunities and manage your applications from one place.
+          </span>
+        </section>
 
-                    <h1>
-                        Welcome,{" "}
-                        {user?.name || "Freelancer"}!
-                    </h1>
-
-
-                    <span>
-                        Find opportunities and manage
-                        your applications from one place.
-                    </span>
-
-                </section>
-
-
-                {/* =================================
+        {/* =================================
                     ACTION CARDS
                 ================================= */}
 
-                <section className="freelancer-cards">
+        <section className="freelancer-cards">
+          {/* FIND JOBS */}
 
+          <article className="freelancer-card">
+            <div className="card-icon">🔍</div>
 
-                    {/* FIND JOBS */}
+            <h2>Find Jobs</h2>
 
-                    <article className="freelancer-card">
+            <p>
+              Browse available freelance jobs and find opportunities that match
+              your skills.
+            </p>
 
-                        <div className="card-icon">
-                            🔍
-                        </div>
+            <button onClick={() => navigate("/jobs")}>Find Jobs →</button>
+          </article>
 
+          {/* MY APPLICATIONS */}
 
-                        <h2>
-                            Find Jobs
-                        </h2>
+          <article className="freelancer-card">
+            <div className="card-icon">📄</div>
 
+            <h2>My Applications</h2>
 
-                        <p>
-                            Browse available freelance
-                            jobs and find opportunities
-                            that match your skills.
-                        </p>
+            <p>
+              View the jobs you have applied for and check your application
+              status.
+            </p>
 
+            <button onClick={() => navigate("/applications")}>
+              View Applications →
+            </button>
+          </article>
 
-                        <button
-                            onClick={() =>
-                                navigate("/jobs")
-                            }
-                        >
-                            Find Jobs →
-                        </button>
+          {/* PROFILE */}
 
-                    </article>
+<article className="freelancer-card">
 
+    <div className="card-icon">
+        👤
+    </div>
 
-                    {/* MY APPLICATIONS */}
+    <h2>
+        My Profile
+    </h2>
 
-                    <article className="freelancer-card">
+    <p>
+        Your account information and
+        freelancer details are shown below.
+    </p>
 
-                        <div className="card-icon">
-                            📄
-                        </div>
+    <button
+    onClick={() => navigate("/profile")}
+>
+    View Profile →
+</button>
 
+</article>
+</section>
 
-                        <h2>
-                            My Applications
-                        </h2>
-
-
-                        <p>
-                            View the jobs you have applied
-                            for and check your application
-                            status.
-                        </p>
-
-
-                        <button
-                            onClick={() =>
-                                navigate(
-                                    "/applications"
-                                )
-                            }
-                        >
-                            View Applications →
-                        </button>
-
-                    </article>
-
-
-                    {/* PROFILE */}
-
-                    <article className="freelancer-card">
-
-                        <div className="card-icon">
-                            👤
-                        </div>
-
-
-                        <h2>
-                            My Profile
-                        </h2>
-
-
-                        <p>
-                            Your account information and
-                            freelancer details are shown below.
-                        </p>
-
-
-                        <button
-                            onClick={() =>
-                                navigate("/profile")
-                            }
-                        >
-                            View Profile →
-                        </button>
-
-                    </article>
-
-
-                </section>
-
-
-                {/* =================================
+        {/* =================================
                     ACCOUNT INFORMATION
                 ================================= */}
 
-                <section className="freelancer-account">
+        <section className="freelancer-account">
+          <h2>Account Information</h2>
 
-                    <h2>
-                        Account Information
-                    </h2>
+          <p>Your freelancer account details.</p>
 
+          <div className="account-details">
+            <div>
+              <span>Name</span>
 
-                    <p>
-                        Your freelancer account details.
-                    </p>
+              <strong>{user?.name || "-"}</strong>
+            </div>
 
+            <div>
+              <span>Email</span>
 
-                    <div className="account-details">
+              <strong>{user?.email || "-"}</strong>
+            </div>
 
+            <div>
+              <span>Role</span>
 
-                        <div>
-
-                            <span>
-                                Name
-                            </span>
-
-
-                            <strong>
-                                {user?.name || "-"}
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Email
-                            </span>
-
-
-                            <strong>
-                                {user?.email || "-"}
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Role
-                            </span>
-
-
-                            <strong>
-                                Freelancer
-                            </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </section>
-
-
-            </main>
-
-        </div>
-
-    );
-
+              <strong>Freelancer</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }
-
 
 export default FreelancerDashboard;

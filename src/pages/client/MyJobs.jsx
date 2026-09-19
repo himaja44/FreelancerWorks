@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 import "../../styles/my-jobs.css";
+
+
 function MyJobs() {
 
     const navigate = useNavigate();
 
 
-    const [user, setUser] = useState({});
+    // ==========================================
+    // STATE
+    // ==========================================
+
+    const [user, setUser] = useState(null);
 
     const [jobs, setJobs] = useState([]);
 
@@ -17,8 +22,15 @@ function MyJobs() {
     const [error, setError] = useState("");
 
 
+    // Job selected for deletion
+    const [deleteJob, setDeleteJob] = useState(null);
+
+    // Delete loading state
+    const [deleting, setDeleting] = useState(false);
+
+
     // ==========================================
-    // CHECK LOGIN
+    // LOAD USER
     // ==========================================
 
     useEffect(() => {
@@ -26,7 +38,13 @@ function MyJobs() {
         const token =
             localStorage.getItem("token");
 
+        const storedUser =
+            JSON.parse(
+                localStorage.getItem("user") || "{}"
+            );
 
+
+        // No token
         if (!token) {
 
             navigate("/login");
@@ -36,23 +54,21 @@ function MyJobs() {
         }
 
 
-        const storedUser =
-            JSON.parse(
-                localStorage.getItem("user") || "{}"
-            );
-
-
         setUser(storedUser);
 
 
+        // Only clients can access My Jobs
         if (
             storedUser.role &&
             storedUser.role.toLowerCase() !== "client"
         ) {
 
-            navigate("/freelancer-dashboard");
+            navigate("/jobs");
+
+            return;
 
         }
+
 
     }, [navigate]);
 
@@ -87,7 +103,7 @@ function MyJobs() {
 
                 const response =
                     await fetch(
-                        "https://freelancerworks-backend.onrender.com/api/jobs/my-jobs",
+                        "https://freelancerworks-production.up.railway.app/api/jobs/my-jobs",
                         {
                             method: "GET",
 
@@ -110,7 +126,7 @@ function MyJobs() {
 
 
                 // ==================================
-                // AUTH ERROR
+                // TOKEN ERROR
                 // ==================================
 
                 if (
@@ -129,10 +145,6 @@ function MyJobs() {
                 }
 
 
-                // ==================================
-                // API ERROR
-                // ==================================
-
                 if (!response.ok) {
 
                     setError(
@@ -146,7 +158,7 @@ function MyJobs() {
 
 
                 // ==================================
-                // SUCCESS
+                // SET JOBS
                 // ==================================
 
                 setJobs(
@@ -184,21 +196,6 @@ function MyJobs() {
 
 
     // ==========================================
-    // LOGOUT
-    // ==========================================
-
-    function handleLogout() {
-
-        localStorage.removeItem("token");
-
-        localStorage.removeItem("user");
-
-        navigate("/login");
-
-    }
-
-
-    // ==========================================
     // DELETE JOB
     // ==========================================
 
@@ -217,24 +214,16 @@ function MyJobs() {
         }
 
 
-        const confirmed =
-            window.confirm(
-                "Are you sure you want to delete this job?"
-            );
-
-
-        if (!confirmed) {
-
-            return;
-
-        }
-
-
         try {
+
+            setDeleting(true);
+
+            setError("");
+
 
             const response =
                 await fetch(
-                    `https://freelancerworks-backend.onrender.com/api/jobs/${jobId}`,
+                    "https://freelancerworks-production.up.railway.app/api/jobs/${jobId}",
                     {
                         method: "DELETE",
 
@@ -255,6 +244,10 @@ function MyJobs() {
                 data
             );
 
+
+            // ==================================
+            // TOKEN ERROR
+            // ==================================
 
             if (
                 response.status === 401 ||
@@ -284,12 +277,21 @@ function MyJobs() {
             }
 
 
+            // ==================================
+            // REMOVE FROM UI
+            // ==================================
+
             setJobs(
                 previousJobs =>
                     previousJobs.filter(
                         job =>
                             job.id !== jobId
                     )
+            );
+
+
+            console.log(
+                "Job deleted successfully."
             );
 
         }
@@ -308,6 +310,27 @@ function MyJobs() {
 
         }
 
+        finally {
+
+            setDeleting(false);
+
+        }
+
+    }
+
+
+    // ==========================================
+    // LOGOUT
+    // ==========================================
+
+    function handleLogout() {
+
+        localStorage.removeItem("token");
+
+        localStorage.removeItem("user");
+
+        navigate("/login");
+
     }
 
 
@@ -324,15 +347,37 @@ function MyJobs() {
         }
 
 
-        return new Date(date)
-            .toLocaleDateString(
-                "en-IN",
-                {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric"
-                }
-            );
+        return new Date(date).toLocaleDateString(
+            "en-IN",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    // ==========================================
+    // LOADING
+    // ==========================================
+
+    if (loading) {
+
+        return (
+
+            <div className="my-jobs-page">
+
+                <div className="loading-state">
+
+                    Loading your jobs...
+
+                </div>
+
+            </div>
+
+        );
 
     }
 
@@ -353,6 +398,8 @@ function MyJobs() {
             <header className="my-jobs-navbar">
 
 
+                {/* LOGO */}
+
                 <div
                     className="my-jobs-logo"
                     onClick={() =>
@@ -362,10 +409,13 @@ function MyJobs() {
                     }
                 >
 
-                    Freelancer<span>Works</span>
+                    Freelancer
+                    <span>Works</span>
 
                 </div>
 
+
+                {/* NAVIGATION */}
 
                 <nav className="my-jobs-nav">
 
@@ -382,7 +432,9 @@ function MyJobs() {
 
                     <button
                         onClick={() =>
-                            navigate("/post-job")
+                            navigate(
+                                "/post-job"
+                            )
                         }
                     >
                         Post a Job
@@ -392,7 +444,9 @@ function MyJobs() {
                     <button
                         className="active"
                         onClick={() =>
-                            navigate("/my-jobs")
+                            navigate(
+                                "/my-jobs"
+                            )
                         }
                     >
                         My Jobs
@@ -401,14 +455,17 @@ function MyJobs() {
                 </nav>
 
 
+                {/* USER */}
+
                 <div className="my-jobs-user">
 
                     <span>
-                        {user.email || "User"}
+                        {user?.email || "User"}
                     </span>
 
 
                     <button
+                        className="logout-button"
                         onClick={handleLogout}
                     >
                         Logout
@@ -419,6 +476,7 @@ function MyJobs() {
             </header>
 
 
+
             {/* =====================================
                 MAIN
             ===================================== */}
@@ -426,11 +484,16 @@ function MyJobs() {
             <main className="my-jobs-main">
 
 
-                <section className="my-jobs-header">
+                {/* =================================
+                    INTRO
+                ================================= */}
+
+                <section className="my-jobs-intro">
+
 
                     <div>
 
-                        <p>
+                        <p className="my-jobs-label">
                             CLIENT WORKSPACE
                         </p>
 
@@ -440,24 +503,30 @@ function MyJobs() {
                         </h1>
 
 
-                        <span>
+                        <p>
                             View and manage the jobs
                             you have posted.
-                        </span>
+                        </p>
 
                     </div>
 
 
+                    {/* POST NEW JOB */}
+
                     <button
                         className="post-new-job-button"
                         onClick={() =>
-                            navigate("/post-job")
+                            navigate(
+                                "/post-job"
+                            )
                         }
                     >
                         + Post a New Job
                     </button>
 
+
                 </section>
+
 
 
                 {/* =================================
@@ -475,30 +544,39 @@ function MyJobs() {
                 )}
 
 
+
                 {/* =================================
-                    LOADING
+                    JOB COUNT
                 ================================= */}
 
-                {loading && (
+                <div className="jobs-heading">
 
-                    <div className="my-jobs-message">
+                    <span>
+                        YOUR JOBS
+                    </span>
 
-                        Loading jobs...
 
-                    </div>
+                    <strong>
 
-                )}
+                        {jobs.length}{" "}
+
+                        {jobs.length === 1
+                            ? "Job"
+                            : "Jobs"}
+
+                    </strong>
+
+                </div>
+
 
 
                 {/* =================================
                     NO JOBS
                 ================================= */}
 
-                {!loading &&
-                !error &&
-                jobs.length === 0 && (
+                {jobs.length === 0 && !error && (
 
-                    <div className="my-jobs-empty">
+                    <section className="no-jobs">
 
                         <h2>
                             No Jobs Yet
@@ -506,8 +584,8 @@ function MyJobs() {
 
 
                         <p>
-                            You have not posted
-                            any jobs yet.
+                            You haven't posted any
+                            jobs yet.
                         </p>
 
 
@@ -521,56 +599,42 @@ function MyJobs() {
                             Post Your First Job →
                         </button>
 
-                    </div>
+                    </section>
 
                 )}
 
 
+
                 {/* =================================
-                    JOBS
+                    JOB LIST
                 ================================= */}
 
-                {!loading &&
-                !error &&
-                jobs.length > 0 && (
+                <section className="jobs-list">
 
-                    <section className="my-jobs-list">
+                    {jobs.map(job => (
 
-
-                        <div className="my-jobs-count">
-
-                            <div>
-
-                                <p>
-                                    YOUR JOBS
-                                </p>
+                        <article
+                            className="job-card"
+                            key={job.id}
+                        >
 
 
-                                <strong>
-                                    {jobs.length}{" "}
-                                    {jobs.length === 1
-                                        ? "Job"
-                                        : "Jobs"}
-                                </strong>
+                            {/* =========================
+                                TOP
+                            ========================= */}
 
-                            </div>
-
-                        </div>
+                            <div className="job-card-top">
 
 
-                        {jobs.map(job => (
+                                <div>
 
-                            <article
-                                className="my-job-card"
-                                key={job.id}
-                            >
+                                    <p className="job-category">
 
+                                        {
+                                            job.category ||
+                                            "General"
+                                        }
 
-                                <div className="my-job-content">
-
-
-                                    <p className="my-job-category">
-                                        {job.category}
                                     </p>
 
 
@@ -579,147 +643,303 @@ function MyJobs() {
                                     </h2>
 
 
-                                    <p className="my-job-description">
-                                        {job.description}
+                                    <p className="job-type">
+
+                                        {
+                                            job.job_type ||
+                                            "Remote"
+                                        }
+
                                     </p>
 
-
-                                    {job.skills && (
-
-                                        <div className="my-job-skills">
-
-                                            {job.skills
-                                                .split(",")
-                                                .map(
-                                                    (
-                                                        skill,
-                                                        index
-                                                    ) => (
-
-                                                        <span
-                                                            key={
-                                                                index
-                                                            }
-                                                        >
-                                                            {
-                                                                skill.trim()
-                                                            }
-                                                        </span>
-
-                                                    )
-                                                )}
-
-                                        </div>
-
-                                    )}
+                                </div>
 
 
-                                    <div className="my-job-info">
+                                {/* STATUS */}
+
+                                <span className="job-status active">
+
+                                    Active
+
+                                </span>
 
 
-                                        <div>
-
-                                            <span>
-                                                Budget
-                                            </span>
+                            </div>
 
 
-                                            <strong>
 
-                                                ₹
-                                                {Number(
-                                                    job.budget_min
-                                                ).toLocaleString(
-                                                    "en-IN"
-                                                )}
+                            {/* =========================
+                                DESCRIPTION
+                            ========================= */}
 
-                                                {" - "}
+                            <p className="job-description">
 
-                                                ₹
-                                                {Number(
-                                                    job.budget_max
-                                                ).toLocaleString(
-                                                    "en-IN"
-                                                )}
+                                {
+                                    job.description ||
+                                    "No description available."
+                                }
 
-                                            </strong>
-
-                                        </div>
+                            </p>
 
 
-                                        <div>
 
-                                            <span>
-                                                Job Type
-                                            </span>
+                            {/* =========================
+                                INFORMATION
+                            ========================= */}
 
-
-                                            <strong>
-                                                {job.job_type}
-                                            </strong>
-
-                                        </div>
+                            <div className="job-information">
 
 
-                                        <div>
+                                <div>
 
-                                            <span>
-                                                Posted
-                                            </span>
+                                    <span>
+                                        Budget
+                                    </span>
 
 
-                                            <strong>
-                                                {formatDate(
-                                                    job.created_at
-                                                )}
-                                            </strong>
+                                    <strong>
 
-                                        </div>
+                                        ₹
+                                        {
+                                            Number(
+                                                job.budget_min || 0
+                                            ).toLocaleString(
+                                                "en-IN"
+                                            )
+                                        }
 
-                                    </div>
+                                        {" - "}
+
+                                        ₹
+                                        {
+                                            Number(
+                                                job.budget_max || 0
+                                            ).toLocaleString(
+                                                "en-IN"
+                                            )
+                                        }
+
+                                    </strong>
 
                                 </div>
 
 
-                                {/* ACTIONS */}
 
-                                <div className="my-job-actions">
+                                <div>
+
+                                    <span>
+                                        Posted
+                                    </span>
 
 
-                                    <button
-                                        onClick={() =>
-                                            navigate(
-                                                `/applicants/${job.id}`
+                                    <strong>
+                                        {
+                                            formatDate(
+                                                job.created_at ||
+                                                job.posted_at
                                             )
                                         }
-                                    >
-                                        View Applicants →
-                                    </button>
-
-
-                                    <button
-                                        onClick={() =>
-                                            handleDelete(
-                                                job.id
-                                            )
-                                        }
-                                    >
-                                        Delete Job
-                                    </button>
-
+                                    </strong>
 
                                 </div>
 
 
-                            </article>
 
-                        ))}
+                                <div>
 
-                    </section>
+                                    <span>
+                                        Job ID
+                                    </span>
 
-                )}
+
+                                    <strong>
+                                        #{job.id}
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            {/* =========================
+                                ACTIONS
+                            ========================= */}
+
+                            <div className="job-actions">
+
+
+                                {/* VIEW DETAILS */}
+
+                                <button
+                                    className="view-details-button"
+                                    onClick={() =>
+                                        navigate(
+                                            `/jobs/${job.id}`
+                                        )
+                                    }
+                                >
+                                    View Details
+                                </button>
+
+
+
+                                {/* VIEW APPLICANTS */}
+
+                                <button
+                                    className="view-applicants-button"
+                                    onClick={() =>
+                                        navigate(
+                                            `/applicants/${job.id}`
+                                        )
+                                    }
+                                >
+                                    View Applicants
+                                </button>
+
+
+
+                                {/* DELETE */}
+
+                                <button
+                                    className="delete-button"
+                                    onClick={() =>
+                                        setDeleteJob(job)
+                                    }
+                                >
+                                    Delete
+                                </button>
+
+
+                            </div>
+
+
+                        </article>
+
+                    ))}
+
+                </section>
 
             </main>
+
+
+
+            {/* =========================================
+                DELETE CONFIRMATION MODAL
+            ========================================= */}
+
+            {deleteJob && (
+
+                <div
+                    className="delete-modal-overlay"
+                    onClick={() => {
+
+                        if (!deleting) {
+
+                            setDeleteJob(null);
+
+                        }
+
+                    }}
+                >
+
+
+                    <div
+                        className="delete-modal"
+                        onClick={event =>
+                            event.stopPropagation()
+                        }
+                    >
+
+
+                        {/* ICON */}
+
+                        <div className="delete-modal-icon">
+
+                            ⚠️
+
+                        </div>
+
+
+                        {/* TITLE */}
+
+                        <h2>
+                            Delete Job?
+                        </h2>
+
+
+                        {/* MESSAGE */}
+
+                        <p>
+
+                            Are you sure you want to
+                            delete
+
+                            <strong>
+                                {" "}
+                                "{deleteJob.title}"
+                            </strong>
+
+                            ?
+
+                        </p>
+
+
+                        <p className="delete-warning">
+
+                            This action cannot be
+                            undone.
+
+                        </p>
+
+
+                        {/* BUTTONS */}
+
+                        <div className="delete-modal-actions">
+
+
+                            {/* CANCEL */}
+
+                            <button
+                                className="cancel-delete"
+                                disabled={deleting}
+                                onClick={() =>
+                                    setDeleteJob(null)
+                                }
+                            >
+                                Cancel
+                            </button>
+
+
+
+                            {/* CONFIRM */}
+
+                            <button
+                                className="confirm-delete"
+                                disabled={deleting}
+                                onClick={() =>
+                                    handleDelete(
+                                        deleteJob.id
+                                    )
+                                }
+                            >
+
+                                {deleting
+                                    ? "Deleting..."
+                                    : "Delete Job"}
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            )}
 
         </div>
 
