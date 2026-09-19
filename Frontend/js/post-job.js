@@ -298,7 +298,7 @@ form.addEventListener(
 
             const response =
                 await fetch(
-                    "https://freelancerworks-backend.onrender.com/api/jobs",
+                    "https://freelancerworks-1.onrender.com/api/jobs",
                     {
 
                         method: "POST",

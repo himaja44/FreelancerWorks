@@ -157,7 +157,7 @@ registerForm.addEventListener(
             try {
 
                 const response = await fetch(
-                    "https://freelancerworks-backend.onrender.com/api/users/register",
+                    "https://freelancerworks-1.onrender.com/api/users/register",
                     {
 
                         method: "POST",
