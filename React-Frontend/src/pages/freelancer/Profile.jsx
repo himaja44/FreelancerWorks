@@ -78,7 +78,7 @@ function Profile() {
 
         const response =
             await fetch(
-                "https://freelancerworks-backend.onrender.com/api/profile",
+                "https://freelancerworks-1.onrender.com/api/profile",
                 {
                     method: "GET",
 
@@ -202,7 +202,7 @@ function Profile() {
 
             const response =
                 await fetch(
-                   "https://freelancerworks-backend.onrender.com/api/profile",
+                   "https://freelancerworks-1.onrender.com/api/profile",
                    {
                         method: "PUT",
 
