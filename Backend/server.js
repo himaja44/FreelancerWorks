@@ -16,7 +16,8 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://himaja44.github.io"
+    "https://himaja44.github.io",
+    "https://freelancerworks-frontend.onrender.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -36,13 +37,9 @@ app.use(
 
 // Routes
 app.use("/api/users", userRoutes);
-
 app.use("/api/jobs", jobRoutes);
-
 app.use("/api/applications", applicationRoutes);
-
 app.use("/api/saved-jobs", savedJobRoutes);
-
 app.use("/api/profile", profileRoutes);
 
 // Home route
