@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.json());
 
 // ==========================================
-// STATIC UPLOADS FOLDER
+// STATIC UPLOADS
 // ==========================================
 
 app.use(
@@ -30,7 +30,7 @@ app.use(
 );
 
 // ==========================================
-// ROUTES
+// API ROUTES
 // ==========================================
 
 app.use("/api/users", userRoutes);
@@ -44,13 +44,19 @@ app.use("/api/saved-jobs", savedJobRoutes);
 app.use("/api/profile", profileRoutes);
 
 // ==========================================
-// HOME ROUTE
+// SERVE REACT FRONTEND
 // ==========================================
 
-app.get("/", function (req, res) {
-  res.json({
-    message: "Freelancer Works backend is running"
-  });
+const frontendPath = path.join(__dirname, "dist");
+
+app.use(express.static(frontendPath));
+
+// ==========================================
+// REACT FALLBACK ROUTE
+// ==========================================
+
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
 });
 
 // ==========================================
