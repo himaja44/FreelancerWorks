@@ -12,41 +12,51 @@ const profileRoutes = require("./routes/profileRoutes");
 
 const app = express();
 
-// CORS configuration
-app.use(cors({
-  origin: true,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+// ==========================================
+// MIDDLEWARE
+// ==========================================
 
-app.options(/.*/, cors({
-  origin: true,
-  credentials: true
-}));
+app.use(cors());
+
 app.use(express.json());
 
-// Static uploads folder
+// ==========================================
+// STATIC UPLOADS FOLDER
+// ==========================================
+
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"))
 );
 
-// Routes
+// ==========================================
+// ROUTES
+// ==========================================
+
 app.use("/api/users", userRoutes);
+
 app.use("/api/jobs", jobRoutes);
+
 app.use("/api/applications", applicationRoutes);
+
 app.use("/api/saved-jobs", savedJobRoutes);
+
 app.use("/api/profile", profileRoutes);
 
-// Home route
+// ==========================================
+// HOME ROUTE
+// ==========================================
+
 app.get("/", function (req, res) {
   res.json({
     message: "Freelancer Works backend is running"
   });
 });
 
-// Start server
+// ==========================================
+// START SERVER
+// ==========================================
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, "0.0.0.0", () => {
