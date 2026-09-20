@@ -13,20 +13,17 @@ const profileRoutes = require("./routes/profileRoutes");
 const app = express();
 
 // CORS configuration
-const corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "https://himaja44.github.io",
-    "https://freelancerworks-frontend.onrender.com"
-  ],
+app.use(cors({
+  origin: true,
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-};
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
-// Middleware
-app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
+app.options(/.*/, cors({
+  origin: true,
+  credentials: true
+}));
 app.use(express.json());
 
 // Static uploads folder
