@@ -46,6 +46,11 @@ function Profile() {
     const [error, setError] =
         useState("");
 
+        useEffect(() => {
+    console.log("PROFILE PAGE LOADED");
+    loadProfile();
+}, []);
+
 
     // ==========================================
     // LOAD PROFILE
