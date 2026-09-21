@@ -102,7 +102,7 @@ function ApplyJob() {
 
                 const response =
                     await fetch(
-                       `https://freelancerworks-production.up.railway.app/api/jobs/${id}`
+                       `https://freelancerworks-backend.onrender.com/api/jobs/${id}`
                     );
 
 
@@ -305,7 +305,7 @@ function ApplyJob() {
 
             const response =
                 await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/applications",
+                    "https://freelancerworks-backend.onrender.com/api/applications",
                     {
 
                         method: "POST",
@@ -625,3 +625,4 @@ function ApplyJob() {
 
 
 export default ApplyJob;
+

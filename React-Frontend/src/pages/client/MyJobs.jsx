@@ -103,7 +103,7 @@ function MyJobs() {
 
                 const response =
                     await fetch(
-                        "https://freelancerworks-production.up.railway.app/api/jobs/my-jobs",
+                        "https://freelancerworks-backend.onrender.com/api/jobs/my-jobs",
                         {
                             method: "GET",
 
@@ -223,7 +223,7 @@ function MyJobs() {
 
             const response =
                 await fetch(
-                    "https://freelancerworks-production.up.railway.app/api/jobs/${jobId}",
+                    "https://freelancerworks-backend.onrender.com/api/jobs/${jobId}",
                     {
                         method: "DELETE",
 
@@ -949,3 +949,4 @@ function MyJobs() {
 
 
 export default MyJobs;
+
